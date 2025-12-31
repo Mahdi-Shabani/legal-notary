@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاوره هوشمند | دستیار دفاتر اسناد رسمی</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#d4af37',
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-vazir bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-primary shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="لوگو قوه قضاییه" class="w-10 h-10 object-contain">
+                        <h1 class="text-white text-lg font-bold">دفتر اسناد رسمی</h1>
+                    </a>
+                </div>
+                
+                <ul class="hidden md:flex items-center gap-6 text-white text-sm">
+                    <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
+                    <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
+                    <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
+                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
+                    <li><a href="chat.html" class="text-secondary">مشاوره</a></li>
+                    <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
+                </ul>
+
+                <button id="menuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
+                <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
+                <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
+                <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
+                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
+                <li><a href="chat.html" class="block py-2 text-secondary">مشاوره</a></li>
+                <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Chat Container -->
+    <main class="flex-1 container mx-auto px-4 py-6 flex flex-col max-w-3xl">
+        
+        <!-- Chat Header -->
+        <div class="bg-white rounded-t-xl shadow-sm p-4 border-b">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="font-bold text-gray-800">دستیار حقوقی هوشمند</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span class="text-sm text-gray-500">آنلاین</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="flex-1 bg-white overflow-y-auto p-4 space-y-4" id="chatMessages" style="min-height: 400px; max-height: 60vh;">
+            
+            <!-- Welcome Message -->
+            <div class="flex gap-3">
+                <div class="w-8 h-8 bg-primary rounded-full flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div class="bg-gray-100 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                    <p class="text-gray-700">سلام! 👋</p>
+                    <p class="text-gray-700 mt-2">من دستیار حقوقی هوشمند هستم. در مورد خدمات دفاتر اسناد رسمی، مدارک مورد نیاز، و سوالات حقوقی می‌تونم کمکتون کنم.</p>
+                    <p class="text-gray-700 mt-2">سوالتون رو بپرسید!</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Suggestions -->
+        <div class="bg-white px-4 py-3 border-t" id="suggestionsContainer">
+            <p class="text-xs text-gray-500 mb-2">پیشنهادات:</p>
+            <div class="flex flex-wrap gap-2" id="suggestions">
+                <button class="suggestion-btn bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">
+                    مدارک انتقال سند ملکی
+                </button>
+                <button class="suggestion-btn bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">
+                    هزینه تنظیم وکالت‌نامه
+                </button>
+                <button class="suggestion-btn bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">
+                    شرایط ثبت ازدواج
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="bg-white rounded-b-xl shadow-sm p-4 border-t">
+            <form id="chatForm" class="flex gap-3">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    class="flex-1 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-primary" 
+                    placeholder="سوال خود را بنویسید..."
+                    autocomplete="off"
+                >
+                <button 
+                    type="submit" 
+                    class="bg-primary text-white px-5 py-3 rounded-xl hover:bg-blue-900 transition flex items-center justify-center"
+                >
+                    <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300 text-xs">این دستیار جایگزین مشاوره حقوقی تخصصی نیست</p>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const suggestions = document.querySelectorAll('.suggestion-btn');
+
+        suggestions.forEach(btn => {
+            btn.addEventListener('click', function() {
+                chatInput.value = this.textContent;
+                chatForm.dispatchEvent(new Event('submit'));
+            });
+        });
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            document.getElementById('suggestionsContainer').classList.add('hidden');
+
+            setTimeout(() => {
+                const responses = [
+                    'برای انتقال سند ملکی به مدارک زیر نیاز دارید:\n۱. سند مالکیت\n۲. کارت ملی طرفین\n۳. پایان خدمت یا معافیت (برای آقایان)\n۴. استعلام مالیاتی',
+                    'هزینه تنظیم وکالت‌نامه بستگی به نوع وکالت داره. وکالت‌نامه فروش ملک معمولاً بین ۵۰۰ هزار تا ۲ میلیون تومان هست.',
+                    'برای ثبت ازدواج به شناسنامه، کارت ملی، عکس و گواهی تجرد نیاز دارید. همچنین آزمایش‌های پزشکی هم الزامیه.',
+                    'سوال خوبی پرسیدید! لطفاً جزئیات بیشتری بدید تا بهتر راهنماییتون کنم.'
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addMessage(randomResponse, 'bot');
+            }, 1000);
+        });
+
+        function addMessage(text, type) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'flex gap-3';
+
+            if (type === 'user') {
+                wrapper.innerHTML = `
+                    <div class="bg-primary text-white rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%] mr-auto">
+                        <p>${text}</p>
+                    </div>
+                    <div class="w-8 h-8 bg-gray-300 rounded-full flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                `;
+            } else {
+                wrapper.innerHTML = `
+                    <div class="w-8 h-8 bg-primary rounded-full flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-gray-100 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+                        <p class="text-gray-700 whitespace-pre-line">${text}</p>
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(wrapper);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>

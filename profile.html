@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل من | دستیار دفاتر اسناد رسمی</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#d4af37',
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-vazir bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-primary shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="لوگو قوه قضاییه" class="w-10 h-10 object-contain">
+                        <h1 class="text-white text-lg font-bold">دفتر اسناد رسمی</h1>
+                    </a>
+                </div>
+                
+                <ul class="hidden md:flex items-center gap-6 text-white text-sm">
+                    <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
+                    <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
+                    <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
+                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
+                    <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
+                    <li><a href="profile.html" class="text-secondary">پروفایل</a></li>
+                </ul>
+
+                <button id="menuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
+                <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
+                <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
+                <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
+                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
+                <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
+                <li><a href="profile.html" class="block py-2 text-secondary">پروفایل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title -->
+    <section class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold">پروفایل من</h2>
+            <p class="text-gray-300 mt-2">مدیریت اطلاعات و مدارک شخصی</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Profile Info -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="text-center">
+                        <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-gray-800 text-lg" id="userName">کاربر میهمان</h3>
+                        <p class="text-gray-500 text-sm mt-1" id="userPhone">شماره تماس ثبت نشده</p>
+                    </div>
+
+                    <hr class="my-6">
+
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 text-sm">مدارک آپلود شده</span>
+                            <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-sm font-bold" id="docCount">۰</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 text-sm">نوبت‌های فعال</span>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold" id="appointmentCount">۰</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents Section -->
+            <div class="lg:col-span-2">
+                
+                <!-- Upload Card -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4">آپلود مدرک جدید</h3>
+                    
+                    <form id="uploadForm" class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">نوع مدرک</label>
+                            <select id="docType" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                <option value="">انتخاب کنید...</option>
+                                <option value="national_card">کارت ملی</option>
+                                <option value="birth_certificate">شناسنامه</option>
+                                <option value="deed">سند ملکی</option>
+                                <option value="power_of_attorney">وکالت‌نامه</option>
+                                <option value="marriage_certificate">سند ازدواج</option>
+                                <option value="other">سایر</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">فایل مدرک</label>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary transition cursor-pointer" id="dropZone">
+                                <input type="file" id="fileInput" class="hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                <svg class="w-10 h-10 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                                <p class="text-gray-500 text-sm">فایل را اینجا رها کنید یا کلیک کنید</p>
+                                <p class="text-gray-400 text-xs mt-1">PDF, JPG, PNG - حداکثر ۵ مگابایت</p>
+                            </div>
+                            <p id="fileName" class="text-sm text-primary mt-2 hidden"></p>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">توضیحات (اختیاری)</label>
+                            <textarea id="docDescription" rows="2" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="توضیحات تکمیلی..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-900 transition font-bold">
+                            آپلود مدرک
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Documents List -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4">مدارک من</h3>
+                    
+                    <div id="documentsList" class="space-y-3">
+                        <div id="docsLoading" class="text-center py-8">
+                            <div class="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
+                            <p class="text-gray-500 mt-3 text-sm">در حال بارگذاری...</p>
+                        </div>
+
+                        <div id="docsEmpty" class="text-center py-8 hidden">
+                            <svg class="w-16 h-16 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            <p class="text-gray-500">هنوز مدرکی آپلود نکرده‌اید</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300 text-sm">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

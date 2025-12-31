@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت دفترخانه | دستیار دفاتر اسناد رسمی</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#d4af37',
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-vazir bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-primary shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h6v6h6v10H6z"/>
+                            </svg>
+                        </div>
+                        <h1 class="text-white text-lg font-bold">دفتر اسناد رسمی</h1>
+                    </a>
+                </div>
+                
+                <ul class="hidden md:flex items-center gap-6 text-white text-sm">
+                    <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
+                    <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
+                    <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
+                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
+                    <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
+                    <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
+                </ul>
+
+                <button id="menuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
+                <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
+                <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
+                <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
+                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
+                <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
+                <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title -->
+    <section class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold">ثبت دفترخانه</h2>
+            <p class="text-gray-300 mt-2">عضویت در شبکه دفاتر اسناد رسمی</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto">
+            
+            <!-- Benefits -->
+            <div class="bg-gradient-to-l from-blue-50 to-yellow-50 rounded-xl p-6 mb-8">
+                <h3 class="font-bold text-primary text-lg mb-4">مزایای عضویت</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm">دریافت نوبت آنلاین از مشتریان</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm">نمایش در لیست دفاتر معتبر</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm">مدیریت آنلاین نوبت‌ها</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 text-sm">افزایش تعداد مراجعین</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="bg-white rounded-xl shadow-sm p-6">
+                <h3 class="font-bold text-gray-800 text-lg mb-6">فرم ثبت‌نام سردفتر</h3>
+                
+                <form id="notaryRegisterForm" class="space-y-5">
+                    
+                    <!-- Personal Info Section -->
+                    <div class="border-b pb-5">
+                        <h4 class="text-primary font-bold text-sm mb-4">اطلاعات شخصی</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">نام و نام خانوادگی <span class="text-red-500">*</span></label>
+                                <input type="text" id="notaryName" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام کامل">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">کد ملی <span class="text-red-500">*</span></label>
+                                <input type="text" id="notaryNationalCode" required maxlength="10" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۱۰ رقم">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">شماره موبایل <span class="text-red-500">*</span></label>
+                                <input type="tel" id="notaryPhone" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">ایمیل</label>
+                                <input type="email" id="notaryEmail" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="example@email.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Info Section -->
+                    <div class="border-b pb-5">
+                        <h4 class="text-primary font-bold text-sm mb-4">اطلاعات دفترخانه</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">شماره دفترخانه <span class="text-red-500">*</span></label>
+                                <input type="text" id="officeNumber" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="مثال: ۱۲۳">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">شماره پروانه <span class="text-red-500">*</span></label>
+                                <input type="text" id="licenseNumber" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="شماره پروانه سردفتری">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">شهر <span class="text-red-500">*</span></label>
+                                <select id="notaryCity" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                    <option value="">انتخاب شهر...</option>
+                                    <option value="tehran">تهران</option>
+                                    <option value="mashhad">مشهد</option>
+                                    <option value="isfahan">اصفهان</option>
+                                    <option value="shiraz">شیراز</option>
+                                    <option value="tabriz">تبریز</option>
+                                    <option value="karaj">کرج</option>
+                                    <option value="qom">قم</option>
+                                    <option value="ahvaz">اهواز</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">تلفن دفتر <span class="text-red-500">*</span></label>
+                                <input type="tel" id="officePhone" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۰۲۱۱۲۳۴۵۶۷۸">
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="block text-gray-700 text-sm mb-2">آدرس کامل <span class="text-red-500">*</span></label>
+                            <textarea id="officeAddress" required rows="2" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="آدرس دقیق دفترخانه"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Services Section -->
+                    <div class="border-b pb-5">
+                        <h4 class="text-primary font-bold text-sm mb-4">خدمات ارائه شده</h4>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" name="services" value="property_transfer" class="w-4 h-4 text-primary rounded">
+                                <span class="text-sm text-gray-700">انتقال سند</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" name="services" value="power_of_attorney" class="w-4 h-4 text-primary rounded">
+                                <span class="text-sm text-gray-700">وکالت‌نامه</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" name="services" value="marriage" class="w-4 h-4 text-primary rounded">
+                                <span class="text-sm text-gray-700">ثبت ازدواج</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" name="services" value="divorce" class="w-4 h-4 text-primary rounded">
+                                <span class="text-sm text-gray-700">ثبت طلاق</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" name="services" value="contract" class="w-4 h-4 text-primary rounded">
+                                <span class="text-sm text-gray-700">تنظیم قرارداد</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" name="services" value="signature" class="w-4 h-4 text-primary rounded">
+                                <span class="text-sm text-gray-700">تصدیق امضا</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours -->
+                    <div class="border-b pb-5">
+                        <h4 class="text-primary font-bold text-sm mb-4">ساعات کاری (۷ صبح تا ۱۴)</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">شروع کار</label>
+                                <select id="workStart" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                    <option value="07:00" selected>۰۷:۰۰</option>
+                                    <option value="07:30">۰۷:۳۰</option>
+                                    <option value="08:00">۰۸:۰۰</option>
+                                    <option value="08:30">۰۸:۳۰</option>
+                                    <option value="09:00">۰۹:۰۰</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm mb-2">پایان کار</label>
+                                <select id="workEnd" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                    <option value="12:00">۱۲:۰۰</option>
+                                    <option value="12:30">۱۲:۳۰</option>
+                                    <option value="13:00">۱۳:۰۰</option>
+                                    <option value="13:30">۱۳:۳۰</option>
+                                    <option value="14:00" selected>۱۴:۰۰</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <label class="block text-gray-700 text-sm mb-2">توضیحات تکمیلی</label>
+                        <textarea id="notaryDescription" rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="توضیحات بیشتر درباره دفترخانه (اختیاری)"></textarea>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="acceptTerms" required class="w-4 h-4 text-primary rounded mt-1">
+                        <label for="acceptTerms" class="text-sm text-gray-600 cursor-pointer">
+                            <span class="text-red-500">*</span>
+                            شرایط و قوانین استفاده از سامانه را مطالعه کرده و می‌پذیرم.
+                        </label>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="w-full bg-secondary text-primary font-bold py-3 rounded-lg hover:bg-yellow-500 transition">
+                        ثبت درخواست عضویت
+                    </button>
+
+                    <p class="text-center text-gray-500 text-xs">
+                        پس از بررسی مدارک، نتیجه از طریق پیامک اطلاع‌رسانی می‌شود
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300 text-sm">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script>
+        // Form Submit
+        document.getElementById('notaryRegisterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('درخواست ثبت‌نام شما با موفقیت ارسال شد', 'success');
+            
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

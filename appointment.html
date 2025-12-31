@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزرو نوبت | دستیار دفاتر اسناد رسمی</title>
+    
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a5f',
+                        secondary: '#d4af37',
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-vazir bg-gray-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-primary shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="لوگو قوه قضاییه" class="w-10 h-10 object-contain">
+                        <h1 class="text-white text-lg font-bold">دفتر اسناد رسمی</h1>
+                    </a>
+                </div>
+                
+                <ul class="hidden md:flex items-center gap-6 text-white text-sm">
+                    <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
+                    <li><a href="appointment.html" class="text-secondary">رزرو نوبت</a></li>
+                    <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
+                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
+                    <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
+                    <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
+                </ul>
+
+                <button id="menuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
+                <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
+                <li><a href="appointment.html" class="block py-2 text-secondary">رزرو نوبت</a></li>
+                <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
+                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
+                <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
+                <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title -->
+    <section class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold">رزرو نوبت دفترخانه</h2>
+            <p class="text-gray-300 mt-2">انتخاب دفترخانه و زمان مراجعه</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Booking Form -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-6">فرم رزرو نوبت</h3>
+                    
+                    <form id="appointmentForm" class="space-y-5">
+                        
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">شهر</label>
+                            <select id="citySelect" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                <option value="">انتخاب شهر...</option>
+                                <option value="tehran">تهران</option>
+                                <option value="mashhad">مشهد</option>
+                                <option value="isfahan">اصفهان</option>
+                                <option value="shiraz">شیراز</option>
+                                <option value="tabriz">تبریز</option>
+                                <option value="karaj">کرج</option>
+                                <option value="qom">قم</option>
+                                <option value="ahvaz">اهواز</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">دفترخانه</label>
+                            <select id="notarySelect" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                <option value="">ابتدا شهر را انتخاب کنید...</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">نوع خدمت</label>
+                            <select id="serviceType" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                <option value="">انتخاب نوع خدمت...</option>
+                                <option value="property_transfer">انتقال سند ملکی</option>
+                                <option value="power_of_attorney">تنظیم وکالت‌نامه</option>
+                                <option value="marriage">ثبت ازدواج</option>
+                                <option value="divorce">ثبت طلاق</option>
+                                <option value="contract">تنظیم قرارداد</option>
+                                <option value="signature_verification">تصدیق امضا</option>
+                                <option value="copy_verification">تصدیق رونوشت</option>
+                                <option value="other">سایر خدمات</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">تاریخ مراجعه</label>
+                            <input type="date" id="appointmentDate" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">ساعت مراجعه (۷ صبح تا ۱۴)</label>
+                            <select id="appointmentTime" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
+                                <option value="">انتخاب ساعت...</option>
+                                <option value="07:00">۰۷:۰۰</option>
+                                <option value="07:30">۰۷:۳۰</option>
+                                <option value="08:00">۰۸:۰۰</option>
+                                <option value="08:30">۰۸:۳۰</option>
+                                <option value="09:00">۰۹:۰۰</option>
+                                <option value="09:30">۰۹:۳۰</option>
+                                <option value="10:00">۱۰:۰۰</option>
+                                <option value="10:30">۱۰:۳۰</option>
+                                <option value="11:00">۱۱:۰۰</option>
+                                <option value="11:30">۱۱:۳۰</option>
+                                <option value="12:00">۱۲:۰۰</option>
+                                <option value="12:30">۱۲:۳۰</option>
+                                <option value="13:00">۱۳:۰۰</option>
+                                <option value="13:30">۱۳:۳۰</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">نام و نام خانوادگی</label>
+                            <input type="text" id="fullName" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام کامل خود را وارد کنید">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">شماره تماس</label>
+                            <input type="tel" id="phone" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">کد ملی</label>
+                            <input type="text" id="nationalCode" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="کد ملی ۱۰ رقمی" maxlength="10">
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-700 text-sm mb-2">توضیحات (اختیاری)</label>
+                            <textarea id="description" rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="توضیحات تکمیلی..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-secondary text-primary font-bold py-3 rounded-lg hover:bg-yellow-500 transition">
+                            ثبت نوبت
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4">نوبت‌های من</h3>
+                    
+                    <div id="appointmentsList">
+                        <div id="appointmentsLoading" class="text-center py-6 hidden">
+                            <div class="w-6 h-6 border-3 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
+                        </div>
+
+                        <div id="appointmentsEmpty" class="text-center py-6">
+                            <svg class="w-12 h-12 text-gray-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <p class="text-gray-500 text-sm">نوبت فعالی ندارید</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h4 class="font-bold text-primary mb-3">راهنما</h4>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary">•</span>
+                            <span>ساعت کاری دفاتر: ۷ صبح تا ۱۴</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary">•</span>
+                            <span>مدارک مورد نیاز را از قبل آماده کنید</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary">•</span>
+                            <span>۱۵ دقیقه قبل از نوبت حضور یابید</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-secondary">•</span>
+                            <span>کارت ملی و شناسنامه الزامی است</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300 text-sm">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
