@@ -42,7 +42,7 @@
                     <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
                     <li><a href="appointment.html" class="text-secondary">رزرو نوبت</a></li>
                     <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
-                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="marriage-offices.html" class="hover:text-secondary transition">دفاتر ازدواج</a></li>
                     <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
                     <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
                     <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
@@ -59,7 +59,7 @@
                 <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
                 <li><a href="appointment.html" class="block py-2 text-secondary">رزرو نوبت</a></li>
                 <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
-                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="marriage-offices.html" class="block py-2 hover:text-secondary">دفاتر ازدواج</a></li>
                 <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
                 <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
                 <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
@@ -67,158 +67,271 @@
         </nav>
     </header>
 
-    <!-- Page Title -->
-    <section class="bg-primary text-white py-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold">رزرو نوبت دفترخانه</h2>
-            <p class="text-gray-300 mt-2">انتخاب دفترخانه و زمان مراجعه</p>
-        </div>
-    </section>
-
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="max-w-2xl mx-auto">
             
-            <!-- Booking Form -->
-            <div class="lg:col-span-2">
-                <div class="bg-white rounded-xl shadow-sm p-6">
-                    <h3 class="font-bold text-gray-800 text-lg mb-6">فرم رزرو نوبت</h3>
-                    
-                    <form id="appointmentForm" class="space-y-5">
-                        
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">شهر</label>
-                            <select id="citySelect" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                                <option value="">انتخاب شهر...</option>
-                                <option value="tehran">تهران</option>
-                                <option value="mashhad">مشهد</option>
-                                <option value="isfahan">اصفهان</option>
-                                <option value="shiraz">شیراز</option>
-                                <option value="tabriz">تبریز</option>
-                                <option value="karaj">کرج</option>
-                                <option value="qom">قم</option>
-                                <option value="ahvaz">اهواز</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">دفترخانه</label>
-                            <select id="notarySelect" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                                <option value="">ابتدا شهر را انتخاب کنید...</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">نوع خدمت</label>
-                            <select id="serviceType" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                                <option value="">انتخاب نوع خدمت...</option>
-                                <option value="property_transfer">انتقال سند ملکی</option>
-                                <option value="power_of_attorney">تنظیم وکالت‌نامه</option>
-                                <option value="marriage">ثبت ازدواج</option>
-                                <option value="divorce">ثبت طلاق</option>
-                                <option value="contract">تنظیم قرارداد</option>
-                                <option value="signature_verification">تصدیق امضا</option>
-                                <option value="copy_verification">تصدیق رونوشت</option>
-                                <option value="other">سایر خدمات</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">تاریخ مراجعه</label>
-                            <input type="date" id="appointmentDate" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">ساعت مراجعه (۷ صبح تا ۱۴)</label>
-                            <select id="appointmentTime" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                                <option value="">انتخاب ساعت...</option>
-                                <option value="07:00">۰۷:۰۰</option>
-                                <option value="07:30">۰۷:۳۰</option>
-                                <option value="08:00">۰۸:۰۰</option>
-                                <option value="08:30">۰۸:۳۰</option>
-                                <option value="09:00">۰۹:۰۰</option>
-                                <option value="09:30">۰۹:۳۰</option>
-                                <option value="10:00">۱۰:۰۰</option>
-                                <option value="10:30">۱۰:۳۰</option>
-                                <option value="11:00">۱۱:۰۰</option>
-                                <option value="11:30">۱۱:۳۰</option>
-                                <option value="12:00">۱۲:۰۰</option>
-                                <option value="12:30">۱۲:۳۰</option>
-                                <option value="13:00">۱۳:۰۰</option>
-                                <option value="13:30">۱۳:۳۰</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">نام و نام خانوادگی</label>
-                            <input type="text" id="fullName" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام کامل خود را وارد کنید">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">شماره تماس</label>
-                            <input type="tel" id="phone" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">کد ملی</label>
-                            <input type="text" id="nationalCode" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="کد ملی ۱۰ رقمی" maxlength="10">
-                        </div>
-
-                        <div>
-                            <label class="block text-gray-700 text-sm mb-2">توضیحات (اختیاری)</label>
-                            <textarea id="description" rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="توضیحات تکمیلی..."></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-secondary text-primary font-bold py-3 rounded-lg hover:bg-yellow-500 transition">
-                            ثبت نوبت
-                        </button>
-                    </form>
-                </div>
+            <!-- Page Title -->
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-2">رزرو نوبت</h2>
+                <p class="text-gray-600">نوع دفتر را انتخاب کنید و فرم را تکمیل نمایید</p>
             </div>
 
-            <!-- Sidebar -->
-            <div class="lg:col-span-1">
+            <!-- فرم رزرو -->
+            <div class="bg-white rounded-xl shadow-sm p-6">
                 
-                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-                    <h3 class="font-bold text-gray-800 text-lg mb-4">نوبت‌های من</h3>
-                    
-                    <div id="appointmentsList">
-                        <div id="appointmentsLoading" class="text-center py-6 hidden">
-                            <div class="w-6 h-6 border-3 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
-                        </div>
-
-                        <div id="appointmentsEmpty" class="text-center py-6">
-                            <svg class="w-12 h-12 text-gray-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-                            <p class="text-gray-500 text-sm">نوبت فعالی ندارید</p>
-                        </div>
+                <!-- انتخاب نوع دفتر - همیشه نمایش داده میشه -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-3">نوع دفتر را انتخاب کنید:</label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- دفتر اسناد رسمی -->
+                        <label id="notaryOption" class="office-type-card cursor-pointer border-2 border-gray-200 rounded-xl p-4 text-center transition hover:border-primary">
+                            <input type="radio" name="officeType" value="notary" class="hidden">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-800">دفتر اسناد رسمی</h4>
+                            <p class="text-xs text-gray-500 mt-1">تنظیم اسناد رسمی</p>
+                        </label>
+                        
+                        <!-- دفتر ازدواج -->
+                        <label id="marriageOption" class="office-type-card cursor-pointer border-2 border-gray-200 rounded-xl p-4 text-center transition hover:border-pink-500">
+                            <input type="radio" name="officeType" value="marriage" class="hidden">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-bold text-gray-800">دفتر ازدواج</h4>
+                            <p class="text-xs text-gray-500 mt-1">ثبت ازدواج و طلاق</p>
+                        </label>
                     </div>
                 </div>
 
-                <div class="bg-blue-50 rounded-xl p-6">
-                    <h4 class="font-bold text-primary mb-3">راهنما</h4>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li class="flex items-start gap-2">
-                            <span class="text-secondary">•</span>
-                            <span>ساعت کاری دفاتر: ۷ صبح تا ۱۴</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-secondary">•</span>
-                            <span>مدارک مورد نیاز را از قبل آماده کنید</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-secondary">•</span>
-                            <span>۱۵ دقیقه قبل از نوبت حضور یابید</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-secondary">•</span>
-                            <span>کارت ملی و شناسنامه الزامی است</span>
-                        </li>
-                    </ul>
+                <!-- =============================================== -->
+                <!-- فرم دفتر اسناد رسمی -->
+                <!-- =============================================== -->
+                <form id="notaryForm" class="hidden space-y-4">
+                    <div class="border-t pt-6">
+                        <h3 class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                            رزرو نوبت دفتر اسناد رسمی
+                        </h3>
+                    </div>
+
+                    <!-- نوع سند -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">نوع سند</label>
+                        <select id="notaryDocType" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">انتخاب کنید...</option>
+                            <option value="property">سند ملکی (خرید/فروش)</option>
+                            <option value="vehicle">سند خودرو</option>
+                            <option value="power">وکالتنامه</option>
+                            <option value="commitment">تعهدنامه</option>
+                            <option value="agreement">اقرارنامه</option>
+                            <option value="other">سایر اسناد</option>
+                        </select>
+                    </div>
+
+                    <!-- استان -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">استان</label>
+                        <select id="notaryProvince" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">انتخاب استان...</option>
+                            <option value="tehran">تهران</option>
+                            <option value="isfahan">اصفهان</option>
+                            <option value="fars">فارس</option>
+                            <option value="khorasan">خراسان رضوی</option>
+                            <option value="azarbaijan">آذربایجان شرقی</option>
+                        </select>
+                    </div>
+
+                    <!-- شهر -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">شهر</label>
+                        <select id="notaryCity" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">ابتدا استان را انتخاب کنید...</option>
+                        </select>
+                    </div>
+
+                    <!-- دفترخانه -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">دفترخانه</label>
+                        <select id="notaryOffice" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">ابتدا شهر را انتخاب کنید...</option>
+                        </select>
+                    </div>
+
+                    <!-- تاریخ -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">تاریخ مراجعه</label>
+                        <input type="date" id="notaryDate" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+
+                    <!-- ساعت -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">ساعت مراجعه</label>
+                        <select id="notaryTime" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">انتخاب ساعت...</option>
+                            <option value="09:00">۰۹:۰۰</option>
+                            <option value="09:30">۰۹:۳۰</option>
+                            <option value="10:00">۱۰:۰۰</option>
+                            <option value="10:30">۱۰:۳۰</option>
+                            <option value="11:00">۱۱:۰۰</option>
+                            <option value="11:30">۱۱:۳۰</option>
+                            <option value="14:00">۱۴:۰۰</option>
+                            <option value="14:30">۱۴:۳۰</option>
+                            <option value="15:00">۱۵:۰۰</option>
+                            <option value="15:30">۱۵:۳۰</option>
+                            <option value="16:00">۱۶:۰۰</option>
+                        </select>
+                    </div>
+
+                    <!-- توضیحات -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">توضیحات (اختیاری)</label>
+                        <textarea id="notaryDesc" rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="توضیحات اضافی..."></textarea>
+                    </div>
+
+                    <!-- دکمه ثبت -->
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-blue-900 transition">
+                        ثبت نوبت دفتر اسناد رسمی
+                    </button>
+                </form>
+
+                <!-- =============================================== -->
+                <!-- فرم دفتر ازدواج -->
+                <!-- =============================================== -->
+                <form id="marriageForm" class="hidden space-y-4">
+                    <div class="border-t pt-6">
+                        <h3 class="text-lg font-bold text-pink-600 mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            رزرو نوبت دفتر ازدواج
+                        </h3>
+                    </div>
+
+                    <!-- نوع خدمت -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">نوع خدمت</label>
+                        <select id="marriageServiceType" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="">انتخاب کنید...</option>
+                            <option value="marriage">ثبت ازدواج (عقد دائم)</option>
+                            <option value="temporary">ثبت ازدواج موقت</option>
+                            <option value="divorce">ثبت طلاق</option>
+                            <option value="certificate">دریافت گواهی</option>
+                        </select>
+                    </div>
+
+                    <!-- استان -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">استان</label>
+                        <select id="marriageProvince" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="">انتخاب استان...</option>
+                            <option value="tehran">تهران</option>
+                            <option value="isfahan">اصفهان</option>
+                            <option value="fars">فارس</option>
+                            <option value="khorasan">خراسان رضوی</option>
+                            <option value="azarbaijan">آذربایجان شرقی</option>
+                        </select>
+                    </div>
+
+                    <!-- شهر -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">شهر</label>
+                        <select id="marriageCity" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="">ابتدا استان را انتخاب کنید...</option>
+                        </select>
+                    </div>
+
+                    <!-- دفتر ازدواج -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">دفتر ازدواج</label>
+                        <select id="marriageOffice" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="">ابتدا شهر را انتخاب کنید...</option>
+                        </select>
+                    </div>
+
+                    <!-- اطلاعات زوجین -->
+                    <div class="bg-pink-50 rounded-lg p-4 space-y-4">
+                        <h4 class="font-medium text-pink-700">اطلاعات زوجین</h4>
+                        
+                        <!-- نام زوج -->
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">نام و نام خانوادگی زوج (آقا)</label>
+                            <input type="text" id="groomName" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="نام کامل داماد">
+                        </div>
+                        
+                        <!-- کد ملی زوج -->
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">کد ملی زوج</label>
+                            <input type="text" id="groomNationalId" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="کد ملی ۱۰ رقمی">
+                        </div>
+                        
+                        <!-- نام زوجه -->
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">نام و نام خانوادگی زوجه (خانم)</label>
+                            <input type="text" id="brideName" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="نام کامل عروس">
+                        </div>
+                        
+                        <!-- کد ملی زوجه -->
+                        <div>
+                            <label class="block text-gray-700 text-sm font-medium mb-2">کد ملی زوجه</label>
+                            <input type="text" id="brideNationalId" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="کد ملی ۱۰ رقمی">
+                        </div>
+                    </div>
+
+                    <!-- تاریخ -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">تاریخ مراسم</label>
+                        <input type="date" id="marriageDate" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+
+                    <!-- ساعت -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">ساعت مراسم</label>
+                        <select id="marriageTime" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option value="">انتخاب ساعت...</option>
+                            <option value="10:00">۱۰:۰۰ صبح</option>
+                            <option value="11:00">۱۱:۰۰ صبح</option>
+                            <option value="12:00">۱۲:۰۰ ظهر</option>
+                            <option value="14:00">۱۴:۰۰ بعد از ظهر</option>
+                            <option value="15:00">۱۵:۰۰ بعد از ظهر</option>
+                            <option value="16:00">۱۶:۰۰ بعد از ظهر</option>
+                            <option value="17:00">۱۷:۰۰ عصر</option>
+                            <option value="18:00">۱۸:۰۰ عصر</option>
+                            <option value="19:00">۱۹:۰۰ عصر</option>
+                            <option value="20:00">۲۰:۰۰ شب</option>
+                        </select>
+                    </div>
+
+                    <!-- توضیحات -->
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">توضیحات (اختیاری)</label>
+                        <textarea id="marriageDesc" rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="درخواست خاص یا توضیحات اضافی..."></textarea>
+                    </div>
+
+                    <!-- دکمه ثبت -->
+                    <button type="submit" class="w-full bg-pink-500 text-white py-3 rounded-lg font-medium hover:bg-pink-600 transition">
+                        ثبت نوبت دفتر ازدواج
+                    </button>
+                </form>
+
+                <!-- پیام راهنما - وقتی هیچ کدوم انتخاب نشده -->
+                <div id="selectHint" class="text-center py-8 text-gray-400">
+                    <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <p>لطفاً نوع دفتر مورد نظر خود را از بالا انتخاب کنید</p>
                 </div>
 
             </div>
+
         </div>
     </main>
 
@@ -229,12 +342,108 @@
         </div>
     </footer>
 
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
-        <p id="toastMessage"></p>
-    </div>
-
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
+    
+    <!-- اسکریپت مدیریت فرم رزرو -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const notaryOption = document.getElementById('notaryOption');
+            const marriageOption = document.getElementById('marriageOption');
+            const notaryForm = document.getElementById('notaryForm');
+            const marriageForm = document.getElementById('marriageForm');
+            const selectHint = document.getElementById('selectHint');
+
+            // انتخاب دفتر اسناد رسمی
+            notaryOption.addEventListener('click', function() {
+                // استایل کارت‌ها
+                notaryOption.classList.add('border-primary', 'bg-blue-50');
+                notaryOption.classList.remove('border-gray-200');
+                marriageOption.classList.remove('border-pink-500', 'bg-pink-50');
+                marriageOption.classList.add('border-gray-200');
+                
+                // نمایش فرم
+                notaryForm.classList.remove('hidden');
+                marriageForm.classList.add('hidden');
+                selectHint.classList.add('hidden');
+            });
+
+            // انتخاب دفتر ازدواج
+            marriageOption.addEventListener('click', function() {
+                // استایل کارت‌ها
+                marriageOption.classList.add('border-pink-500', 'bg-pink-50');
+                marriageOption.classList.remove('border-gray-200');
+                notaryOption.classList.remove('border-primary', 'bg-blue-50');
+                notaryOption.classList.add('border-gray-200');
+                
+                // نمایش فرم
+                marriageForm.classList.remove('hidden');
+                notaryForm.classList.add('hidden');
+                selectHint.classList.add('hidden');
+            });
+
+            // داده‌های شهرها
+            const cities = {
+                tehran: ['تهران', 'شهریار', 'کرج', 'ورامین', 'پردیس'],
+                isfahan: ['اصفهان', 'کاشان', 'نجف‌آباد', 'خمینی‌شهر'],
+                fars: ['شیراز', 'مرودشت', 'جهرم', 'لار'],
+                khorasan: ['مشهد', 'نیشابور', 'سبزوار', 'تربت حیدریه'],
+                azarbaijan: ['تبریز', 'مراغه', 'مرند', 'اهر']
+            };
+
+            // پر کردن شهرها برای دفتر اسناد رسمی
+            document.getElementById('notaryProvince').addEventListener('change', function() {
+                const citySelect = document.getElementById('notaryCity');
+                citySelect.innerHTML = '<option value="">انتخاب شهر...</option>';
+                
+                if (this.value && cities[this.value]) {
+                    cities[this.value].forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                }
+            });
+
+            // پر کردن شهرها برای دفتر ازدواج
+            document.getElementById('marriageProvince').addEventListener('change', function() {
+                const citySelect = document.getElementById('marriageCity');
+                citySelect.innerHTML = '<option value="">انتخاب شهر...</option>';
+                
+                if (this.value && cities[this.value]) {
+                    cities[this.value].forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                }
+            });
+
+            // ارسال فرم دفتر اسناد رسمی
+            notaryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('نوبت دفتر اسناد رسمی با موفقیت ثبت شد!');
+            });
+
+            // ارسال فرم دفتر ازدواج
+            marriageForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('نوبت دفتر ازدواج با موفقیت ثبت شد!');
+            });
+
+            // منوی موبایل
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>

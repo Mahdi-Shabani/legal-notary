@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رزرو وقت وکلا | دستیار دفاتر اسناد رسمی</title>
+    <title>وکلا | دستیار دفاتر اسناد رسمی</title>
     
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,11 +38,12 @@
                     </a>
                 </div>
                 
+                <!-- منوی دسکتاپ - اصلاح شده -->
                 <ul class="hidden md:flex items-center gap-6 text-white text-sm">
                     <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
                     <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
                     <li><a href="lawyers.html" class="text-secondary">وکلا</a></li>
-                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="marriage-offices.html" class="hover:text-secondary transition">دفاتر ازدواج</a></li>
                     <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
                     <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
                     <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
@@ -55,11 +56,12 @@
                 </button>
             </div>
 
+            <!-- منوی موبایل - اصلاح شده -->
             <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
                 <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
                 <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
                 <li><a href="lawyers.html" class="block py-2 text-secondary">وکلا</a></li>
-                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="marriage-offices.html" class="block py-2 hover:text-secondary">دفاتر ازدواج</a></li>
                 <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
                 <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
                 <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
@@ -67,323 +69,196 @@
         </nav>
     </header>
 
-    <!-- Page Title -->
-    <section class="bg-primary text-white py-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold">رزرو وقت وکلا</h2>
-            <p class="text-gray-300 mt-2">مشاوره حقوقی و وکالت تخصصی</p>
-        </div>
-    </section>
-
-    <!-- Filter Section -->
-    <section class="container mx-auto px-4 py-6">
-        <div class="bg-white rounded-xl shadow-sm p-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">شهر</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary">
-                        <option value="">همه شهرها</option>
-                        <option value="tehran">تهران</option>
-                        <option value="mashhad">مشهد</option>
-                        <option value="isfahan">اصفهان</option>
-                        <option value="shiraz">شیراز</option>
-                        <option value="tabriz">تبریز</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">تخصص</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary">
-                        <option value="">همه تخصص‌ها</option>
-                        <option value="civil">حقوقی</option>
-                        <option value="criminal">کیفری</option>
-                        <option value="family">خانواده</option>
-                        <option value="property">ملکی</option>
-                        <option value="commercial">تجاری</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">جنسیت</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary">
-                        <option value="">همه</option>
-                        <option value="male">آقا</option>
-                        <option value="female">خانم</option>
-                    </select>
-                </div>
-                <div class="flex items-end">
-                    <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition">
-                        جستجو
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lawyers List -->
-    <main class="container mx-auto px-4 py-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
             
-            <!-- Lawyer Card 1 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
+            <!-- Page Title -->
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-2">وکلای مجرب</h2>
+                <p class="text-gray-600">جستجو و رزرو وقت مشاوره با وکلای پایه یک دادگستری</p>
+            </div>
+
+            <!-- فیلتر و جستجو -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <!-- جستجو -->
+                    <div class="md:col-span-2">
+                        <input type="text" id="searchLawyer" placeholder="جستجوی نام وکیل..." 
+                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
                     </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-gray-800">دکتر احمد محمدی</h3>
-                        <p class="text-primary text-sm">وکیل پایه یک دادگستری</p>
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded-full">حقوقی</span>
-                            <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">ملکی</span>
-                        </div>
+                    
+                    <!-- تخصص -->
+                    <div>
+                        <select id="specialty" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">تخصص</option>
+                            <option value="family">خانواده</option>
+                            <option value="criminal">کیفری</option>
+                            <option value="property">ملکی</option>
+                            <option value="commercial">تجاری</option>
+                            <option value="labor">کار و تامین اجتماعی</option>
+                        </select>
                     </div>
-                </div>
-                <div class="mt-4 pt-4 border-t">
-                    <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                        <span>📍 تهران</span>
-                        <span>⭐ ۴.۸ (۱۲۵ نظر)</span>
+                    
+                    <!-- شهر -->
+                    <div>
+                        <select id="city" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">شهر</option>
+                            <option value="tehran">تهران</option>
+                            <option value="isfahan">اصفهان</option>
+                            <option value="shiraz">شیراز</option>
+                            <option value="mashhad">مشهد</option>
+                            <option value="tabriz">تبریز</option>
+                        </select>
                     </div>
-                    <div class="flex items-center justify-between text-sm mb-3">
-                        <span class="text-gray-500">هزینه مشاوره:</span>
-                        <span class="font-bold text-primary">۵۰۰,۰۰۰ تومان</span>
-                    </div>
-                    <button class="w-full bg-secondary text-primary font-bold py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openLawyerModal('دکتر احمد محمدی')">
-                        رزرو وقت مشاوره
-                    </button>
                 </div>
             </div>
 
-            <!-- Lawyer Card 2 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-gray-800">سارا رضایی</h3>
-                        <p class="text-primary text-sm">وکیل پایه یک دادگستری</p>
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded-full">خانواده</span>
-                            <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">کیفری</span>
+            <!-- لیست وکلا -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="lawyersList">
+                
+                <!-- وکیل ۱ -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white text-xl font-bold">م.ر</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">دکتر محمد رضایی</h3>
+                                <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>تخصص: حقوق خانواده</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>تهران</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>۴.۸ (۱۲۴ نظر)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-900 transition">
+                                رزرو وقت
+                            </button>
+                            <button class="px-4 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-primary hover:text-white transition">
+                                پروفایل
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 pt-4 border-t">
-                    <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                        <span>📍 مشهد</span>
-                        <span>⭐ ۴.۹ (۸۹ نظر)</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm mb-3">
-                        <span class="text-gray-500">هزینه مشاوره:</span>
-                        <span class="font-bold text-primary">۴۰۰,۰۰۰ تومان</span>
-                    </div>
-                    <button class="w-full bg-secondary text-primary font-bold py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openLawyerModal('سارا رضایی')">
-                        رزرو وقت مشاوره
-                    </button>
-                </div>
-            </div>
 
-            <!-- Lawyer Card 3 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-gray-800">علی حسینی</h3>
-                        <p class="text-primary text-sm">وکیل پایه یک دادگستری</p>
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded-full">تجاری</span>
-                            <span class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full">کار</span>
+                <!-- وکیل ۲ -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xl font-bold">ز.ک</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">زهرا کریمی</h3>
+                                <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>تخصص: حقوق کیفری</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>اصفهان</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>۴.۹ (۸۹ نظر)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-900 transition">
+                                رزرو وقت
+                            </button>
+                            <button class="px-4 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-primary hover:text-white transition">
+                                پروفایل
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 pt-4 border-t">
-                    <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                        <span>📍 اصفهان</span>
-                        <span>⭐ ۴.۷ (۶۳ نظر)</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm mb-3">
-                        <span class="text-gray-500">هزینه مشاوره:</span>
-                        <span class="font-bold text-primary">۳۵۰,۰۰۰ تومان</span>
-                    </div>
-                    <button class="w-full bg-secondary text-primary font-bold py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openLawyerModal('علی حسینی')">
-                        رزرو وقت مشاوره
-                    </button>
-                </div>
-            </div>
 
-            <!-- Lawyer Card 4 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-gray-800">مریم کریمی</h3>
-                        <p class="text-primary text-sm">وکیل پایه یک دادگستری</p>
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="bg-pink-100 text-pink-700 text-xs px-2 py-1 rounded-full">خانواده</span>
-                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">ارث</span>
+                <!-- وکیل ۳ -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xl font-bold">ع.م</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800">علی محمدی</h3>
+                                <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <span>تخصص: حقوق ملکی</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>شیراز</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>۴.۷ (۶۵ نظر)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-2">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-900 transition">
+                                رزرو وقت
+                            </button>
+                            <button class="px-4 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-primary hover:text-white transition">
+                                پروفایل
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 pt-4 border-t">
-                    <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                        <span>📍 شیراز</span>
-                        <span>⭐ ۴.۶ (۴۵ نظر)</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm mb-3">
-                        <span class="text-gray-500">هزینه مشاوره:</span>
-                        <span class="font-bold text-primary">۳۰۰,۰۰۰ تومان</span>
-                    </div>
-                    <button class="w-full bg-secondary text-primary font-bold py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openLawyerModal('مریم کریمی')">
-                        رزرو وقت مشاوره
-                    </button>
-                </div>
-            </div>
 
-            <!-- Lawyer Card 5 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-gray-800">دکتر رضا نوری</h3>
-                        <p class="text-primary text-sm">وکیل پایه یک دادگستری</p>
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="bg-blue-100 text-primary text-xs px-2 py-1 rounded-full">حقوقی</span>
-                            <span class="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">بین‌الملل</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-4 pt-4 border-t">
-                    <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                        <span>📍 تهران</span>
-                        <span>⭐ ۵.۰ (۲۰۰ نظر)</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm mb-3">
-                        <span class="text-gray-500">هزینه مشاوره:</span>
-                        <span class="font-bold text-primary">۸۰۰,۰۰۰ تومان</span>
-                    </div>
-                    <button class="w-full bg-secondary text-primary font-bold py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openLawyerModal('دکتر رضا نوری')">
-                        رزرو وقت مشاوره
-                    </button>
-                </div>
-            </div>
-
-            <!-- Lawyer Card 6 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-gray-800">فاطمه احمدی</h3>
-                        <p class="text-primary text-sm">وکیل پایه یک دادگستری</p>
-                        <div class="flex items-center gap-2 mt-2 flex-wrap">
-                            <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">کیفری</span>
-                            <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">سایبری</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-4 pt-4 border-t">
-                    <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                        <span>📍 تبریز</span>
-                        <span>⭐ ۴.۸ (۷۲ نظر)</span>
-                    </div>
-                    <div class="flex items-center justify-between text-sm mb-3">
-                        <span class="text-gray-500">هزینه مشاوره:</span>
-                        <span class="font-bold text-primary">۴۵۰,۰۰۰ تومان</span>
-                    </div>
-                    <button class="w-full bg-secondary text-primary font-bold py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openLawyerModal('فاطمه احمدی')">
-                        رزرو وقت مشاوره
-                    </button>
-                </div>
             </div>
 
         </div>
     </main>
-
-    <!-- Booking Modal -->
-    <div id="lawyerModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <div class="flex items-center justify-between p-5 border-b">
-                <h3 class="font-bold text-lg text-gray-800">رزرو وقت مشاوره</h3>
-                <button onclick="closeLawyerModal()" class="text-gray-400 hover:text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-
-            <form id="lawyerBookingForm" class="p-5 space-y-4">
-                <div class="bg-blue-50 p-3 rounded-lg">
-                    <p class="text-sm text-gray-600">وکیل انتخابی:</p>
-                    <p class="font-bold text-primary" id="lawyerNameDisplay"></p>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">تاریخ مشاوره</label>
-                    <input type="date" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">ساعت مشاوره</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                        <option value="">انتخاب ساعت...</option>
-                        <option value="09:00">۰۹:۰۰</option>
-                        <option value="10:00">۱۰:۰۰</option>
-                        <option value="11:00">۱۱:۰۰</option>
-                        <option value="14:00">۱۴:۰۰</option>
-                        <option value="15:00">۱۵:۰۰</option>
-                        <option value="16:00">۱۶:۰۰</option>
-                        <option value="17:00">۱۷:۰۰</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">نوع مشاوره</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                        <option value="in_person">حضوری</option>
-                        <option value="phone">تلفنی</option>
-                        <option value="video">ویدیویی</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">نام و نام خانوادگی</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام کامل">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">شماره تماس</label>
-                    <input type="tel" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">شرح مختصر موضوع</label>
-                    <textarea rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="موضوع مشاوره..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-900 transition font-bold">
-                    ثبت رزرو
-                </button>
-            </form>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-primary text-white py-8 mt-12">
@@ -392,32 +267,15 @@
         </div>
     </footer>
 
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
-        <p id="toastMessage"></p>
-    </div>
-
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
     
     <script>
-        function openLawyerModal(lawyerName) {
-            document.getElementById('lawyerNameDisplay').textContent = lawyerName;
-            document.getElementById('lawyerModal').classList.remove('hidden');
-            document.getElementById('lawyerModal').classList.add('flex');
-        }
-
-        function closeLawyerModal() {
-            document.getElementById('lawyerModal').classList.add('hidden');
-            document.getElementById('lawyerModal').classList.remove('flex');
-        }
-
-        document.getElementById('lawyerBookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showToast('رزرو شما با موفقیت ثبت شد', 'success');
-            closeLawyerModal();
-            this.reset();
+        // منوی موبایل
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         });
     </script>
+
 </body>
 </html>

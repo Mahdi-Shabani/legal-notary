@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تجربیات حقوقی | دستیار دفاتر اسناد رسمی</title>
+    <title>تجربیات کاربران | دستیار دفاتر اسناد رسمی</title>
     
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,11 +38,12 @@
                     </a>
                 </div>
                 
+                <!-- منوی دسکتاپ - اصلاح شده -->
                 <ul class="hidden md:flex items-center gap-6 text-white text-sm">
                     <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
                     <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
                     <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
-                    <li><a href="e-judicial.html" class="hover:text-secondary transition">دفاتر قضایی</a></li>
+                    <li><a href="marriage-offices.html" class="hover:text-secondary transition">دفاتر ازدواج</a></li>
                     <li><a href="experiences.html" class="text-secondary">تجربیات</a></li>
                     <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
                     <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
@@ -55,11 +56,12 @@
                 </button>
             </div>
 
+            <!-- منوی موبایل - اصلاح شده -->
             <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
                 <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
                 <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
                 <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
-                <li><a href="e-judicial.html" class="block py-2 hover:text-secondary">دفاتر قضایی</a></li>
+                <li><a href="marriage-offices.html" class="block py-2 hover:text-secondary">دفاتر ازدواج</a></li>
                 <li><a href="experiences.html" class="block py-2 text-secondary">تجربیات</a></li>
                 <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
                 <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
@@ -67,212 +69,151 @@
         </nav>
     </header>
 
-    <!-- Page Title -->
-    <section class="bg-primary text-white py-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold">انجمن تجربیات حقوقی</h2>
-            <p class="text-gray-300 mt-2">اشتراک‌گذاری و مطالعه تجربیات کاربران</p>
-        </div>
-    </section>
-
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        
-        <!-- Add Experience Button -->
-        <div class="flex justify-between items-center mb-6">
-            <div class="flex items-center gap-3">
-                <select id="categoryFilter" class="border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-primary">
-                    <option value="">همه دسته‌ها</option>
-                    <option value="property">ملکی</option>
-                    <option value="family">خانواده</option>
-                    <option value="inheritance">ارث</option>
-                    <option value="contract">قراردادها</option>
-                    <option value="other">سایر</option>
-                </select>
-            </div>
-            <button id="addExperienceBtn" class="bg-secondary text-primary font-bold px-5 py-2 rounded-lg hover:bg-yellow-500 transition flex items-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                </svg>
-                <span class="hidden sm:inline">ثبت تجربه</span>
-            </button>
-        </div>
-
-        <!-- Experiences Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="experiencesGrid">
+        <div class="max-w-4xl mx-auto">
             
-            <!-- Experience Card 1 -->
-            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-                <span class="inline-block bg-blue-100 text-primary text-xs px-3 py-1 rounded-full mb-3">ملکی</span>
-                <h4 class="font-bold text-gray-800 mb-2">تجربه انتقال سند آپارتمان</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">برای انتقال سند آپارتمان به دفترخانه مراجعه کردم. مدارک لازم شامل سند مالکیت، کارت ملی و...</p>
-                <div class="flex items-center justify-between text-gray-400 text-xs">
-                    <span>علی محمدی</span>
-                    <div class="flex items-center gap-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            ۲۴
-                        </span>
-                        <span>۱۴۰۳/۰۹/۱۵</span>
-                    </div>
-                </div>
+            <!-- Page Title -->
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-2">تجربیات کاربران</h2>
+                <p class="text-gray-600">تجربیات و نظرات کاربران درباره دفاتر اسناد رسمی</p>
             </div>
 
-            <!-- Experience Card 2 -->
-            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-                <span class="inline-block bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full mb-3">خانواده</span>
-                <h4 class="font-bold text-gray-800 mb-2">مراحل ثبت ازدواج در دفترخانه</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">برای ثبت ازدواج به دفترخانه ازدواج رفتیم. مدارک مورد نیاز شناسنامه، کارت ملی، گواهی تجرد و...</p>
-                <div class="flex items-center justify-between text-gray-400 text-xs">
-                    <span>مریم رضایی</span>
-                    <div class="flex items-center gap-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            ۴۵
-                        </span>
-                        <span>۱۴۰۳/۰۹/۱۰</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Card 3 -->
-            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-                <span class="inline-block bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full mb-3">وکالت‌نامه</span>
-                <h4 class="font-bold text-gray-800 mb-2">تنظیم وکالت‌نامه فروش خودرو</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">برای فروش خودرو وکالت‌نامه بلاعزل تنظیم کردم. هزینه و مراحل کار خیلی ساده بود...</p>
-                <div class="flex items-center justify-between text-gray-400 text-xs">
-                    <span>حسین کریمی</span>
-                    <div class="flex items-center gap-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            ۳۱
-                        </span>
-                        <span>۱۴۰۳/۰۹/۰۵</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Card 4 -->
-            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-                <span class="inline-block bg-orange-100 text-orange-700 text-xs px-3 py-1 rounded-full mb-3">ارث</span>
-                <h4 class="font-bold text-gray-800 mb-2">تقسیم ارث و انحصار وراثت</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">بعد از فوت پدرم برای گرفتن گواهی انحصار وراثت اقدام کردم. مراحل کمی طولانی بود ولی...</p>
-                <div class="flex items-center justify-between text-gray-400 text-xs">
-                    <span>سارا احمدی</span>
-                    <div class="flex items-center gap-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            ۵۶
-                        </span>
-                        <span>۱۴۰۳/۰۸/۲۸</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Card 5 -->
-            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-                <span class="inline-block bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full mb-3">قرارداد</span>
-                <h4 class="font-bold text-gray-800 mb-2">تنظیم قرارداد اجاره رسمی</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">قرارداد اجاره رو توی دفترخانه رسمی کردم. این کار امنیت بیشتری برای موجر و مستأجر داره...</p>
-                <div class="flex items-center justify-between text-gray-400 text-xs">
-                    <span>رضا نوری</span>
-                    <div class="flex items-center gap-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            ۱۸
-                        </span>
-                        <span>۱۴۰۳/۰۸/۲۰</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Experience Card 6 -->
-            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-                <span class="inline-block bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full mb-3">طلاق</span>
-                <h4 class="font-bold text-gray-800 mb-2">مراحل ثبت طلاق توافقی</h4>
-                <p class="text-gray-600 text-sm leading-relaxed mb-4">طلاق توافقی گرفتیم و مراحل ثبت رو در دفترخانه انجام دادیم. توصیه میکنم حتماً وکیل داشته باشید...</p>
-                <div class="flex items-center justify-between text-gray-400 text-xs">
-                    <span>ناشناس</span>
-                    <div class="flex items-center gap-3">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                            ۳۷
-                        </span>
-                        <span>۱۴۰۳/۰۸/۱۵</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Load More -->
-        <div class="text-center mt-8">
-            <button class="bg-white text-primary border border-primary px-6 py-2 rounded-lg hover:bg-primary hover:text-white transition">
-                مشاهده بیشتر
-            </button>
-        </div>
-
-    </main>
-
-    <!-- Add Experience Modal -->
-    <div id="experienceModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <div class="flex items-center justify-between p-5 border-b">
-                <h3 class="font-bold text-lg text-gray-800">ثبت تجربه جدید</h3>
-                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            <!-- دکمه افزودن تجربه -->
+            <div class="mb-8 text-center">
+                <button id="addExperienceBtn" class="bg-secondary text-primary font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 transition inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                     </svg>
+                    اشتراک تجربه جدید
                 </button>
             </div>
 
-            <form id="experienceForm" class="p-5 space-y-4">
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">عنوان تجربه</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="مثال: نحوه انتقال سند آپارتمان">
+            <!-- فرم افزودن تجربه (مخفی) -->
+            <div id="experienceForm" class="hidden bg-white rounded-xl shadow-sm p-6 mb-8">
+                <h3 class="text-lg font-bold text-primary mb-4">تجربه خود را به اشتراک بگذارید</h3>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">عنوان</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="عنوان تجربه شما">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">دفترخانه</label>
+                        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="نام دفترخانه">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">امتیاز</label>
+                        <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="5">⭐⭐⭐⭐⭐ عالی</option>
+                            <option value="4">⭐⭐⭐⭐ خوب</option>
+                            <option value="3">⭐⭐⭐ متوسط</option>
+                            <option value="2">⭐⭐ ضعیف</option>
+                            <option value="1">⭐ خیلی ضعیف</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-medium mb-2">توضیحات</label>
+                        <textarea rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="تجربه خود را شرح دهید..."></textarea>
+                    </div>
+                    <div class="flex gap-3">
+                        <button type="submit" class="flex-1 bg-primary text-white py-3 rounded-lg font-medium hover:bg-blue-900 transition">
+                            ثبت تجربه
+                        </button>
+                        <button type="button" id="cancelBtn" class="px-6 border border-gray-300 text-gray-600 py-3 rounded-lg hover:bg-gray-100 transition">
+                            انصراف
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- لیست تجربیات -->
+            <div class="space-y-6">
+                
+                <!-- تجربه ۱ -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">ع.م</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">علی محمدی</h4>
+                                <p class="text-sm text-gray-500">دفترخانه ۱۲۳ تهران</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <h5 class="font-medium text-gray-800 mb-2">تجربه عالی در انتقال سند ملک</h5>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        برای انتقال سند آپارتمان به این دفترخانه مراجعه کردم. برخورد کارکنان بسیار حرفه‌ای بود و کار در کمتر از ۲ ساعت انجام شد. هزینه‌ها هم کاملاً شفاف اعلام شد. توصیه می‌کنم.
+                    </p>
+                    <div class="mt-4 text-xs text-gray-400">۱۴۰۳/۰۹/۱۵</div>
                 </div>
 
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">دسته‌بندی</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                        <option value="">انتخاب دسته‌بندی...</option>
-                        <option value="property">ملکی</option>
-                        <option value="family">خانواده</option>
-                        <option value="inheritance">ارث</option>
-                        <option value="contract">قراردادها</option>
-                        <option value="power_of_attorney">وکالت‌نامه</option>
-                        <option value="other">سایر</option>
-                    </select>
+                <!-- تجربه ۲ -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">م.ر</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">مریم رضایی</h4>
+                                <p class="text-sm text-gray-500">دفترخانه ۴۵ اصفهان</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <h5 class="font-medium text-gray-800 mb-2">وکالتنامه فوری</h5>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        برای تنظیم وکالتنامه فوری نیاز داشتم. با وجود شلوغی دفترخانه، کارم را در همان روز انجام دادند. فقط کمی معطل شدم ولی در کل راضی بودم.
+                    </p>
+                    <div class="mt-4 text-xs text-gray-400">۱۴۰۳/۰۹/۱۰</div>
                 </div>
 
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">متن تجربه</label>
-                    <textarea rows="5" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="تجربه خود را با جزئیات شرح دهید..."></textarea>
+                <!-- تجربه ۳ -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">ح.ن</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">حسین نوری</h4>
+                                <p class="text-sm text-gray-500">دفترخانه ۷۸ شیراز</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-1 text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                    </div>
+                    <h5 class="font-medium text-gray-800 mb-2">سند خودرو</h5>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        انتقال سند خودرو خیلی سریع و راحت انجام شد. سردفتر خیلی خوش‌برخورد بود و همه چیز رو توضیح داد. قیمت‌ها هم منصفانه بود.
+                    </p>
+                    <div class="mt-4 text-xs text-gray-400">۱۴۰۳/۰۹/۰۵</div>
                 </div>
 
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">نام شما (اختیاری)</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام یا نام مستعار">
-                </div>
+            </div>
 
-                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-900 transition font-bold">
-                    ثبت تجربه
-                </button>
-            </form>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-primary text-white py-8 mt-12">
@@ -281,32 +222,26 @@
         </div>
     </footer>
 
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
-        <p id="toastMessage"></p>
-    </div>
-
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
     
     <script>
+        // منوی موبایل
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // نمایش/مخفی فرم تجربه
         document.getElementById('addExperienceBtn').addEventListener('click', function() {
-            document.getElementById('experienceModal').classList.remove('hidden');
-            document.getElementById('experienceModal').classList.add('flex');
+            document.getElementById('experienceForm').classList.remove('hidden');
+            this.classList.add('hidden');
         });
 
-        document.getElementById('closeModalBtn').addEventListener('click', function() {
-            document.getElementById('experienceModal').classList.add('hidden');
-            document.getElementById('experienceModal').classList.remove('flex');
-        });
-
-        document.getElementById('experienceForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showToast('تجربه شما با موفقیت ثبت شد', 'success');
-            document.getElementById('experienceModal').classList.add('hidden');
-            document.getElementById('experienceModal').classList.remove('flex');
-            this.reset();
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            document.getElementById('experienceForm').classList.add('hidden');
+            document.getElementById('addExperienceBtn').classList.remove('hidden');
         });
     </script>
+
 </body>
 </html>
