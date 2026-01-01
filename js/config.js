@@ -1,12 +1,7 @@
-/**
- * ==========================================
- * دستیار دفاتر اسناد رسمی - تنظیمات
- * ==========================================
- */
 
 const CONFIG = {
     // آدرس API بک‌اند
-    API_BASE: "https://your-app.onrender.com",
+    API_BASE: "https://egal-notary-api.onrender.com",
 
     // Endpoints
     ENDPOINTS: {
