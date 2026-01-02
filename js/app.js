@@ -1,3 +1,10 @@
+/**
+ * ==========================================
+ * دستیار دفاتر اسناد رسمی - منطق اصلی
+ * ==========================================
+ */
+
+// ==========================================
 // متغیرهای سراسری
 // ==========================================
 let currentExperienceId = null;
@@ -17,10 +24,8 @@ function showToast(message, type = "info") {
 
     if (!toast || !toastMessage) return;
 
-    // حذف کلاس‌های قبلی
     toast.classList.remove("success", "error", "warning");
 
-    // اضافه کردن کلاس جدید
     if (type === "success") toast.classList.add("success");
     else if (type === "error") toast.classList.add("error");
     else if (type === "warning") toast.classList.add("warning");
@@ -28,7 +33,6 @@ function showToast(message, type = "info") {
     toastMessage.textContent = message;
     toast.classList.add("show");
 
-    // مخفی کردن بعد از ۳ ثانیه
     setTimeout(() => {
         toast.classList.remove("show");
     }, 3000);
@@ -46,7 +50,6 @@ async function apiRequest(endpoint, options = {}) {
         }
     };
 
-    // اگر FormData بود، هدر Content-Type رو حذف کن
     if (options.body instanceof FormData) {
         delete defaultOptions.headers["Content-Type"];
     }
@@ -109,7 +112,6 @@ function initMobileMenu() {
         mobileMenu.classList.toggle("show");
     });
 
-    // بستن منو با کلیک بیرون
     document.addEventListener("click", (e) => {
         if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
             mobileMenu.classList.add("hidden");
@@ -126,102 +128,91 @@ function initProfilePage() {
     const uploadForm = document.getElementById("uploadForm");
     const dropZone = document.getElementById("dropZone");
     const fileInput = document.getElementById("fileInput");
-    const fileName = document.getElementById("fileName");
 
     if (!uploadForm) return;
 
-    // لود مدارک
     loadUserDocuments();
 
-    // کلیک روی DropZone
-    dropZone.addEventListener("click", () => fileInput.click());
+    if (dropZone) {
+        dropZone.addEventListener("click", () => fileInput.click());
 
-    // Drag & Drop
-    dropZone.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        dropZone.classList.add("dragover");
-    });
+        dropZone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZone.classList.add("dragover");
+        });
 
-    dropZone.addEventListener("dragleave", () => {
-        dropZone.classList.remove("dragover");
-    });
+        dropZone.addEventListener("dragleave", () => {
+            dropZone.classList.remove("dragover");
+        });
 
-    dropZone.addEventListener("drop", (e) => {
-        e.preventDefault();
-        dropZone.classList.remove("dragover");
+        dropZone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropZone.classList.remove("dragover");
 
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            handleFileSelect(files[0]);
-        }
-    });
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+    }
 
-    // انتخاب فایل
-    fileInput.addEventListener("change", (e) => {
-        if (e.target.files.length > 0) {
-            handleFileSelect(e.target.files[0]);
-        }
-    });
+    if (fileInput) {
+        fileInput.addEventListener("change", (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+    }
 
-    // ارسال فرم
     uploadForm.addEventListener("submit", handleUploadSubmit);
 }
 
-/**
- * انتخاب فایل
- */
 function handleFileSelect(file) {
     const fileName = document.getElementById("fileName");
     const fileInput = document.getElementById("fileInput");
 
-    // بررسی حجم
     if (file.size > CONFIG.UPLOAD.MAX_SIZE) {
         showToast(CONFIG.MESSAGES.ERROR.UPLOAD_SIZE, "error");
         return;
     }
 
-    // بررسی نوع
     if (!CONFIG.UPLOAD.ALLOWED_TYPES.includes(file.type)) {
         showToast(CONFIG.MESSAGES.ERROR.UPLOAD_TYPE, "error");
         return;
     }
 
-    // نمایش نام فایل
-    fileName.textContent = `فایل انتخاب شده: ${file.name}`;
-    fileName.classList.remove("hidden");
+    if (fileName) {
+        fileName.textContent = `فایل انتخاب شده: ${file.name}`;
+        fileName.classList.remove("hidden");
+    }
 
-    // ذخیره فایل
-    fileInput.files = createFileList(file);
+    if (fileInput) {
+        fileInput.files = createFileList(file);
+    }
 }
 
-/**
- * ایجاد FileList
- */
 function createFileList(file) {
     const dt = new DataTransfer();
     dt.items.add(file);
     return dt.files;
 }
 
-/**
- * ارسال فرم آپلود
- */
 async function handleUploadSubmit(e) {
     e.preventDefault();
 
-    const docType = document.getElementById("docType").value;
+    const docType = document.getElementById("docType");
     const fileInput = document.getElementById("fileInput");
-    const description = document.getElementById("docDescription").value;
+    const description = document.getElementById("docDescription");
 
-    if (!docType || !fileInput.files[0]) {
+    if (!docType || !fileInput || !docType.value || !fileInput.files[0]) {
         showToast(CONFIG.MESSAGES.ERROR.REQUIRED_FIELDS, "error");
         return;
     }
 
     const formData = new FormData();
     formData.append("file", fileInput.files[0]);
-    formData.append("type", docType);
-    formData.append("description", description);
+    formData.append("type", docType.value);
+    formData.append("description", description ? description.value : "");
     formData.append("user_id", getUserId());
 
     const result = await apiRequest(CONFIG.ENDPOINTS.UPLOAD, {
@@ -232,16 +223,14 @@ async function handleUploadSubmit(e) {
     if (result.success) {
         showToast(CONFIG.MESSAGES.SUCCESS.UPLOAD, "success");
         e.target.reset();
-        document.getElementById("fileName").classList.add("hidden");
+        const fileName = document.getElementById("fileName");
+        if (fileName) fileName.classList.add("hidden");
         loadUserDocuments();
     } else {
         showToast(result.error, "error");
     }
 }
 
-/**
- * لود مدارک کاربر
- */
 async function loadUserDocuments() {
     const listContainer = document.getElementById("documentsList");
     const loading = document.getElementById("docsLoading");
@@ -250,19 +239,18 @@ async function loadUserDocuments() {
 
     if (!listContainer) return;
 
-    loading.classList.remove("hidden");
-    empty.classList.add("hidden");
+    if (loading) loading.classList.remove("hidden");
+    if (empty) empty.classList.add("hidden");
 
     const userId = getUserId();
     const result = await apiRequest(CONFIG.ENDPOINTS.UPLOAD_USER + userId);
 
-    loading.classList.add("hidden");
+    if (loading) loading.classList.add("hidden");
 
     if (result.success && result.data.length > 0) {
         const docs = result.data;
-        docCount.textContent = HELPERS.toPersianNumber(docs.length);
+        if (docCount) docCount.textContent = HELPERS.toPersianNumber(docs.length);
 
-        // حذف محتوای قبلی (غیر از loading و empty)
         const existingCards = listContainer.querySelectorAll(".document-card");
         existingCards.forEach((card) => card.remove());
 
@@ -271,14 +259,11 @@ async function loadUserDocuments() {
             listContainer.appendChild(card);
         });
     } else {
-        empty.classList.remove("hidden");
-        docCount.textContent = "۰";
+        if (empty) empty.classList.remove("hidden");
+        if (docCount) docCount.textContent = "۰";
     }
 }
 
-/**
- * ایجاد کارت مدرک
- */
 function createDocumentCard(doc) {
     const card = document.createElement("div");
     card.className = "document-card flex items-center justify-between p-4 bg-gray-50 rounded-lg";
@@ -308,9 +293,6 @@ function createDocumentCard(doc) {
     return card;
 }
 
-/**
- * حذف مدرک
- */
 async function deleteDocument(docId) {
     if (!confirm(CONFIG.MESSAGES.WARNING.CONFIRM_DELETE)) return;
 
@@ -337,37 +319,32 @@ function initAppointmentPage() {
 
     if (!form) return;
 
-    // لود شهرها
     loadCities();
-
-    // لود نوبت‌ها
     loadUserAppointments();
 
-    // تغییر شهر
-    citySelect.addEventListener("change", async (e) => {
-        const city = e.target.value;
+    if (citySelect) {
+        citySelect.addEventListener("change", async (e) => {
+            const city = e.target.value;
 
-        if (city) {
-            notarySelect.disabled = false;
-            await loadNotariesByCity(city);
-        } else {
-            notarySelect.disabled = true;
-            notarySelect.innerHTML = '<option value="">ابتدا شهر را انتخاب کنید...</option>';
-        }
-    });
+            if (city && notarySelect) {
+                notarySelect.disabled = false;
+                await loadNotariesByCity(city);
+            } else if (notarySelect) {
+                notarySelect.disabled = true;
+                notarySelect.innerHTML = '<option value="">ابتدا شهر را انتخاب کنید...</option>';
+            }
+        });
+    }
 
-    // تاریخ حداقل
     const dateInput = document.getElementById("appointmentDate");
-    const today = new Date().toISOString().split("T")[0];
-    dateInput.min = today;
+    if (dateInput) {
+        const today = new Date().toISOString().split("T")[0];
+        dateInput.min = today;
+    }
 
-    // ارسال فرم
     form.addEventListener("submit", handleAppointmentSubmit);
 }
 
-/**
- * لود شهرها
- */
 async function loadCities() {
     const citySelect = document.getElementById("citySelect");
     if (!citySelect) return;
@@ -387,11 +364,9 @@ async function loadCities() {
     });
 }
 
-/**
- * لود دفترخانه‌ها بر اساس شهر
- */
 async function loadNotariesByCity(city) {
     const notarySelect = document.getElementById("notarySelect");
+    if (!notarySelect) return;
 
     notarySelect.innerHTML = '<option value="">در حال بارگذاری...</option>';
 
@@ -411,46 +386,56 @@ async function loadNotariesByCity(city) {
     }
 }
 
-/**
- * ارسال فرم نوبت
- */
 async function handleAppointmentSubmit(e) {
     e.preventDefault();
 
-    const notaryId = document.getElementById("notarySelect").value;
-    const serviceType = document.getElementById("serviceType").value;
-    const date = document.getElementById("appointmentDate").value;
-    const time = document.getElementById("appointmentTime").value;
-    const fullName = document.getElementById("fullName").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const nationalCode = document.getElementById("nationalCode").value.trim();
-    const description = document.getElementById("description").value.trim();
+    const notarySelect = document.getElementById("notarySelect");
+    const serviceType = document.getElementById("serviceType");
+    const appointmentDate = document.getElementById("appointmentDate");
+    const appointmentTime = document.getElementById("appointmentTime");
+    const fullName = document.getElementById("fullName");
+    const phone = document.getElementById("phone");
+    const nationalCode = document.getElementById("nationalCode");
+    const description = document.getElementById("description");
 
-    // اعتبارسنجی
-    if (!notaryId || !serviceType || !date || !time || !fullName || !phone || !nationalCode) {
+    if (!notarySelect || !serviceType || !appointmentDate || !appointmentTime || !fullName || !phone || !nationalCode) {
         showToast(CONFIG.MESSAGES.ERROR.REQUIRED_FIELDS, "error");
         return;
     }
 
-    if (!HELPERS.isValidPhone(phone)) {
+    const notaryId = notarySelect.value;
+    const service = serviceType.value;
+    const date = appointmentDate.value;
+    const time = appointmentTime.value;
+    const name = fullName.value.trim();
+    const phoneVal = phone.value.trim();
+    const nationalVal = nationalCode.value.trim();
+    const desc = description ? description.value.trim() : "";
+
+    if (!notaryId || !service || !date || !time || !name || !phoneVal || !nationalVal) {
+        showToast(CONFIG.MESSAGES.ERROR.REQUIRED_FIELDS, "error");
+        return;
+    }
+
+    if (!HELPERS.isValidPhone(phoneVal)) {
         showToast(CONFIG.MESSAGES.ERROR.INVALID_PHONE, "error");
         return;
     }
 
-    if (!HELPERS.isValidNationalCode(nationalCode)) {
+    if (!HELPERS.isValidNationalCode(nationalVal)) {
         showToast(CONFIG.MESSAGES.ERROR.INVALID_NATIONAL_CODE, "error");
         return;
     }
 
     const data = {
         notary_id: notaryId,
-        service_type: serviceType,
+        service_type: service,
         date: date,
         time: time,
-        full_name: fullName,
-        phone: HELPERS.toEnglishNumber(phone),
-        national_code: HELPERS.toEnglishNumber(nationalCode),
-        description: description,
+        full_name: name,
+        phone: HELPERS.toEnglishNumber(phoneVal),
+        national_code: HELPERS.toEnglishNumber(nationalVal),
+        description: desc,
         user_id: getUserId()
     };
 
@@ -462,17 +447,16 @@ async function handleAppointmentSubmit(e) {
     if (result.success) {
         showToast(CONFIG.MESSAGES.SUCCESS.APPOINTMENT, "success");
         e.target.reset();
-        document.getElementById("notarySelect").disabled = true;
-        document.getElementById("notarySelect").innerHTML = '<option value="">ابتدا شهر را انتخاب کنید...</option>';
+        if (notarySelect) {
+            notarySelect.disabled = true;
+            notarySelect.innerHTML = '<option value="">ابتدا شهر را انتخاب کنید...</option>';
+        }
         loadUserAppointments();
     } else {
         showToast(result.error, "error");
     }
 }
 
-/**
- * لود نوبت‌های کاربر
- */
 async function loadUserAppointments() {
     const listContainer = document.getElementById("appointmentsList");
     const loading = document.getElementById("appointmentsLoading");
@@ -481,15 +465,14 @@ async function loadUserAppointments() {
 
     if (!listContainer) return;
 
-    loading.classList.remove("hidden");
-    empty.classList.add("hidden");
+    if (loading) loading.classList.remove("hidden");
+    if (empty) empty.classList.add("hidden");
 
     const userId = getUserId();
     const result = await apiRequest(CONFIG.ENDPOINTS.APPOINTMENTS + `?user_id=${userId}`);
 
-    loading.classList.add("hidden");
+    if (loading) loading.classList.add("hidden");
 
-    // حذف کارت‌های قبلی
     const existingCards = listContainer.querySelectorAll(".appointment-card");
     existingCards.forEach((card) => card.remove());
 
@@ -506,14 +489,11 @@ async function loadUserAppointments() {
             listContainer.appendChild(card);
         });
     } else {
-        empty.classList.remove("hidden");
+        if (empty) empty.classList.remove("hidden");
         if (countBadge) countBadge.textContent = "۰";
     }
 }
 
-/**
- * ایجاد کارت نوبت
- */
 function createAppointmentCard(appointment) {
     const card = document.createElement("div");
     const statusInfo = CONFIG.APPOINTMENT_STATUS[appointment.status] || CONFIG.APPOINTMENT_STATUS.pending;
@@ -542,9 +522,6 @@ function createAppointmentCard(appointment) {
     return card;
 }
 
-/**
- * لغو نوبت
- */
 async function cancelAppointment(appointmentId) {
     if (!confirm(CONFIG.MESSAGES.WARNING.CONFIRM_CANCEL)) return;
 
@@ -576,41 +553,43 @@ function initExperiencesPage() {
 
     if (!modal) return;
 
-    // لود دسته‌بندی‌ها
     loadCategories();
-
-    // لود تجربیات
     loadExperiences();
 
-    // باز کردن مودال
-    addBtn.addEventListener("click", () => {
-        modal.classList.remove("hidden");
-        modal.classList.add("show");
-        document.body.style.overflow = "hidden";
-    });
+    if (addBtn) {
+        addBtn.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden";
+        });
+    }
 
-    // بستن مودال
-    closeBtn.addEventListener("click", closeExperienceModal);
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeExperienceModal);
+    }
+
     modal.addEventListener("click", (e) => {
         if (e.target === modal) closeExperienceModal();
     });
 
-    // بستن مودال جزئیات
-    closeDetailBtn.addEventListener("click", closeDetailModal);
-    detailModal.addEventListener("click", (e) => {
-        if (e.target === detailModal) closeDetailModal();
-    });
+    if (closeDetailBtn && detailModal) {
+        closeDetailBtn.addEventListener("click", closeDetailModal);
+        detailModal.addEventListener("click", (e) => {
+            if (e.target === detailModal) closeDetailModal();
+        });
+    }
 
-    // فیلتر دسته‌بندی
-    categoryFilter.addEventListener("change", () => {
-        experiencesPage = 1;
-        loadExperiences(true);
-    });
+    if (categoryFilter) {
+        categoryFilter.addEventListener("change", () => {
+            experiencesPage = 1;
+            loadExperiences(true);
+        });
+    }
 
-    // ارسال فرم
-    form.addEventListener("submit", handleExperienceSubmit);
+    if (form) {
+        form.addEventListener("submit", handleExperienceSubmit);
+    }
 
-    // بارگذاری بیشتر
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener("click", () => {
             experiencesPage++;
@@ -619,30 +598,25 @@ function initExperiencesPage() {
     }
 }
 
-/**
- * بستن مودال تجربه
- */
 function closeExperienceModal() {
     const modal = document.getElementById("experienceModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("show");
-    document.body.style.overflow = "";
+    if (modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
 }
 
-/**
- * بستن مودال جزئیات
- */
 function closeDetailModal() {
     const modal = document.getElementById("detailModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("show");
-    document.body.style.overflow = "";
+    if (modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
     currentExperienceId = null;
 }
 
-/**
- * لود دسته‌بندی‌ها
- */
 async function loadCategories() {
     const filterSelect = document.getElementById("categoryFilter");
     const formSelect = document.getElementById("expCategory");
@@ -655,7 +629,6 @@ async function loadCategories() {
     }
 
     categories.forEach((cat) => {
-        // فیلتر
         if (filterSelect) {
             const option1 = document.createElement("option");
             option1.value = cat.id;
@@ -663,7 +636,6 @@ async function loadCategories() {
             filterSelect.appendChild(option1);
         }
 
-        // فرم
         if (formSelect) {
             const option2 = document.createElement("option");
             option2.value = cat.id;
@@ -673,9 +645,6 @@ async function loadCategories() {
     });
 }
 
-/**
- * لود تجربیات
- */
 async function loadExperiences(reset = true) {
     const grid = document.getElementById("experiencesGrid");
     const loading = document.getElementById("experiencesLoading");
@@ -685,10 +654,9 @@ async function loadExperiences(reset = true) {
     if (!grid) return;
 
     if (reset) {
-        loading.classList.remove("hidden");
-        empty.classList.add("hidden");
+        if (loading) loading.classList.remove("hidden");
+        if (empty) empty.classList.add("hidden");
 
-        // حذف کارت‌های قبلی
         const existingCards = grid.querySelectorAll(".experience-card");
         existingCards.forEach((card) => card.remove());
     }
@@ -703,7 +671,7 @@ async function loadExperiences(reset = true) {
 
     const result = await apiRequest(url);
 
-    loading.classList.add("hidden");
+    if (loading) loading.classList.add("hidden");
     isLoadingMore = false;
 
     if (result.success && result.data.length > 0) {
@@ -712,20 +680,16 @@ async function loadExperiences(reset = true) {
             grid.appendChild(card);
         });
 
-        // نمایش دکمه بارگذاری بیشتر
         if (result.data.length >= 9 && loadMoreContainer) {
             loadMoreContainer.classList.remove("hidden");
         } else if (loadMoreContainer) {
             loadMoreContainer.classList.add("hidden");
         }
     } else if (reset) {
-        empty.classList.remove("hidden");
+        if (empty) empty.classList.remove("hidden");
     }
 }
 
-/**
- * ایجاد کارت تجربه
- */
 function createExperienceCard(exp) {
     const card = document.createElement("div");
     card.className = "experience-card bg-white rounded-xl shadow-sm p-5 cursor-pointer fade-in";
@@ -757,9 +721,6 @@ function createExperienceCard(exp) {
     return card;
 }
 
-/**
- * نمایش جزئیات تجربه
- */
 function openExperienceDetail(exp) {
     const modal = document.getElementById("detailModal");
     const title = document.getElementById("detailTitle");
@@ -770,26 +731,23 @@ function openExperienceDetail(exp) {
     const likes = document.getElementById("detailLikes");
     const likeBtn = document.getElementById("detailLikeBtn");
 
+    if (!modal) return;
+
     currentExperienceId = exp.id;
 
-    title.textContent = exp.title;
-    category.textContent = exp.category_name || "عمومی";
-    date.textContent = HELPERS.formatDate(exp.created_at);
-    content.textContent = exp.content;
-    author.textContent = exp.author || "ناشناس";
-    likes.textContent = HELPERS.toPersianNumber(exp.likes || 0);
-
-    // لایک
-    likeBtn.onclick = () => likeExperience(exp.id);
+    if (title) title.textContent = exp.title;
+    if (category) category.textContent = exp.category_name || "عمومی";
+    if (date) date.textContent = HELPERS.formatDate(exp.created_at);
+    if (content) content.textContent = exp.content;
+    if (author) author.textContent = exp.author || "ناشناس";
+    if (likes) likes.textContent = HELPERS.toPersianNumber(exp.likes || 0);
+    if (likeBtn) likeBtn.onclick = () => likeExperience(exp.id);
 
     modal.classList.remove("hidden");
     modal.classList.add("show");
     document.body.style.overflow = "hidden";
 }
 
-/**
- * لایک تجربه
- */
 async function likeExperience(expId) {
     const result = await apiRequest(CONFIG.ENDPOINTS.EXPERIENCE_LIKE + expId + "/like", {
         method: "POST"
@@ -799,8 +757,8 @@ async function likeExperience(expId) {
         const likesSpan = document.getElementById("detailLikes");
         const likeBtn = document.getElementById("detailLikeBtn");
 
-        likesSpan.textContent = HELPERS.toPersianNumber(result.data.likes);
-        likeBtn.classList.add("liked");
+        if (likesSpan) likesSpan.textContent = HELPERS.toPersianNumber(result.data.likes);
+        if (likeBtn) likeBtn.classList.add("liked");
 
         showToast(CONFIG.MESSAGES.SUCCESS.LIKE, "success");
     } else {
@@ -808,16 +766,20 @@ async function likeExperience(expId) {
     }
 }
 
-/**
- * ارسال تجربه جدید
- */
 async function handleExperienceSubmit(e) {
     e.preventDefault();
 
-    const title = document.getElementById("expTitle").value.trim();
-    const category = document.getElementById("expCategory").value;
-    const content = document.getElementById("expContent").value.trim();
-    const author = document.getElementById("expAuthor").value.trim();
+    const titleEl = document.getElementById("expTitle");
+    const categoryEl = document.getElementById("expCategory");
+    const contentEl = document.getElementById("expContent");
+    const authorEl = document.getElementById("expAuthor");
+
+    if (!titleEl || !categoryEl || !contentEl) return;
+
+    const title = titleEl.value.trim();
+    const category = categoryEl.value;
+    const content = contentEl.value.trim();
+    const author = authorEl ? authorEl.value.trim() : "";
 
     if (!title || !category || !content) {
         showToast(CONFIG.MESSAGES.ERROR.REQUIRED_FIELDS, "error");
@@ -855,38 +817,29 @@ async function handleExperienceSubmit(e) {
 function initChatPage() {
     const form = document.getElementById("chatForm");
     const input = document.getElementById("chatInput");
-    const messagesContainer = document.getElementById("chatMessages");
     const suggestions = document.querySelectorAll(".suggestion-btn");
 
     if (!form) return;
 
-    // بررسی وضعیت AI
     checkChatHealth();
-
-    // لود پیشنهادات از API
     loadChatSuggestions();
 
-    // کلیک روی پیشنهادات
     suggestions.forEach((btn) => {
         btn.addEventListener("click", () => {
-            input.value = btn.textContent;
+            if (input) input.value = btn.textContent;
             form.dispatchEvent(new Event("submit"));
         });
     });
 
-    // ارسال پیام
     form.addEventListener("submit", handleChatSubmit);
-
-    // اسکرول به پایین
     scrollToBottom();
 }
 
-/**
- * بررسی وضعیت AI
- */
 async function checkChatHealth() {
     const statusDot = document.getElementById("statusDot");
     const statusText = document.getElementById("statusText");
+
+    if (!statusDot || !statusText) return;
 
     const result = await apiRequest(CONFIG.ENDPOINTS.CHAT_HEALTH);
 
@@ -901,9 +854,6 @@ async function checkChatHealth() {
     }
 }
 
-/**
- * لود پیشنهادات چت
- */
 async function loadChatSuggestions() {
     const container = document.getElementById("suggestions");
     if (!container) return;
@@ -917,42 +867,37 @@ async function loadChatSuggestions() {
             btn.className = "suggestion-btn bg-gray-100 text-gray-700 text-sm px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition";
             btn.textContent = suggestion;
             btn.addEventListener("click", () => {
-                document.getElementById("chatInput").value = suggestion;
-                document.getElementById("chatForm").dispatchEvent(new Event("submit"));
+                const input = document.getElementById("chatInput");
+                const form = document.getElementById("chatForm");
+                if (input) input.value = suggestion;
+                if (form) form.dispatchEvent(new Event("submit"));
             });
             container.appendChild(btn);
         });
     }
 }
 
-/**
- * ارسال پیام چت
- */
 async function handleChatSubmit(e) {
     e.preventDefault();
 
     const input = document.getElementById("chatInput");
     const sendBtn = document.getElementById("sendBtn");
     const suggestionsContainer = document.getElementById("suggestionsContainer");
-    const message = input.value.trim();
 
+    if (!input) return;
+
+    const message = input.value.trim();
     if (!message) return;
 
-    // غیرفعال کردن ورودی
-    input.disabled = true;
-    sendBtn.disabled = true;
+    if (input) input.disabled = true;
+    if (sendBtn) sendBtn.disabled = true;
+    if (suggestionsContainer) suggestionsContainer.classList.add("hidden");
 
-    // مخفی کردن پیشنهادات
-    suggestionsContainer.classList.add("hidden");
-
-    // اضافه کردن پیام کاربر
     addChatMessage(message, "user");
     input.value = "";
 
-    // نمایش typing indicator
     showTypingIndicator();
 
-    // ارسال به API
     const result = await apiRequest(CONFIG.ENDPOINTS.CHAT, {
         method: "POST",
         body: JSON.stringify({
@@ -961,13 +906,11 @@ async function handleChatSubmit(e) {
         })
     });
 
-    // حذف typing indicator
     hideTypingIndicator();
 
-    // فعال کردن ورودی
-    input.disabled = false;
-    sendBtn.disabled = false;
-    input.focus();
+    if (input) input.disabled = false;
+    if (sendBtn) sendBtn.disabled = false;
+    if (input) input.focus();
 
     if (result.success) {
         addChatMessage(result.data.response, "bot");
@@ -976,11 +919,9 @@ async function handleChatSubmit(e) {
     }
 }
 
-/**
- * اضافه کردن پیام به چت
- */
 function addChatMessage(message, type) {
     const container = document.getElementById("chatMessages");
+    if (!container) return;
 
     const wrapper = document.createElement("div");
     wrapper.className = `flex gap-3 chat-message ${type}`;
@@ -1013,11 +954,9 @@ function addChatMessage(message, type) {
     scrollToBottom();
 }
 
-/**
- * نمایش Typing Indicator
- */
 function showTypingIndicator() {
     const container = document.getElementById("chatMessages");
+    if (!container) return;
 
     const wrapper = document.createElement("div");
     wrapper.className = "flex gap-3";
@@ -1040,17 +979,11 @@ function showTypingIndicator() {
     scrollToBottom();
 }
 
-/**
- * مخفی کردن Typing Indicator
- */
 function hideTypingIndicator() {
     const indicator = document.getElementById("typingIndicator");
     if (indicator) indicator.remove();
 }
 
-/**
- * اسکرول به پایین
- */
 function scrollToBottom() {
     const container = document.getElementById("chatMessages");
     if (container) {
@@ -1058,9 +991,6 @@ function scrollToBottom() {
     }
 }
 
-/**
- * Escape HTML
- */
 function escapeHtml(text) {
     const div = document.createElement("div");
     div.textContent = text;
@@ -1073,20 +1003,13 @@ function escapeHtml(text) {
 
 function initNotaryRegisterPage() {
     const form = document.getElementById("notaryRegisterForm");
-    const citySelect = document.getElementById("notaryCity");
 
     if (!form) return;
 
-    // لود شهرها
     loadCitiesForNotary();
-
-    // ارسال فرم
     form.addEventListener("submit", handleNotaryRegisterSubmit);
 }
 
-/**
- * لود شهرها برای ثبت‌نام سردفتر
- */
 async function loadCitiesForNotary() {
     const citySelect = document.getElementById("notaryCity");
     if (!citySelect) return;
@@ -1106,33 +1029,47 @@ async function loadCitiesForNotary() {
     });
 }
 
-/**
- * ارسال فرم ثبت‌نام سردفتر
- */
 async function handleNotaryRegisterSubmit(e) {
     e.preventDefault();
 
-    const name = document.getElementById("notaryName").value.trim();
-    const nationalCode = document.getElementById("notaryNationalCode").value.trim();
-    const phone = document.getElementById("notaryPhone").value.trim();
-    const email = document.getElementById("notaryEmail").value.trim();
-    const officeNumber = document.getElementById("officeNumber").value.trim();
-    const licenseNumber = document.getElementById("licenseNumber").value.trim();
-    const city = document.getElementById("notaryCity").value;
-    const officePhone = document.getElementById("officePhone").value.trim();
-    const address = document.getElementById("officeAddress").value.trim();
-    const workStart = document.getElementById("workStart").value;
-    const workEnd = document.getElementById("workEnd").value;
-    const description = document.getElementById("notaryDescription").value.trim();
-    const acceptTerms = document.getElementById("acceptTerms").checked;
+    const nameEl = document.getElementById("notaryName");
+    const nationalCodeEl = document.getElementById("notaryNationalCode");
+    const phoneEl = document.getElementById("notaryPhone");
+    const emailEl = document.getElementById("notaryEmail");
+    const officeNumberEl = document.getElementById("officeNumber");
+    const licenseNumberEl = document.getElementById("licenseNumber");
+    const cityEl = document.getElementById("notaryCity");
+    const officePhoneEl = document.getElementById("officePhone");
+    const addressEl = document.getElementById("officeAddress");
+    const workStartEl = document.getElementById("workStart");
+    const workEndEl = document.getElementById("workEnd");
+    const descriptionEl = document.getElementById("notaryDescription");
+    const acceptTermsEl = document.getElementById("acceptTerms");
 
-    // خدمات انتخاب شده
+    if (!nameEl || !nationalCodeEl || !phoneEl || !officeNumberEl || !licenseNumberEl || !cityEl || !officePhoneEl || !addressEl) {
+        showToast(CONFIG.MESSAGES.ERROR.REQUIRED_FIELDS, "error");
+        return;
+    }
+
+    const name = nameEl.value.trim();
+    const nationalCode = nationalCodeEl.value.trim();
+    const phone = phoneEl.value.trim();
+    const email = emailEl ? emailEl.value.trim() : "";
+    const officeNumber = officeNumberEl.value.trim();
+    const licenseNumber = licenseNumberEl.value.trim();
+    const city = cityEl.value;
+    const officePhone = officePhoneEl.value.trim();
+    const address = addressEl.value.trim();
+    const workStart = workStartEl ? workStartEl.value : "";
+    const workEnd = workEndEl ? workEndEl.value : "";
+    const description = descriptionEl ? descriptionEl.value.trim() : "";
+    const acceptTerms = acceptTermsEl ? acceptTermsEl.checked : false;
+
     const services = [];
     document.querySelectorAll('input[name="services"]:checked').forEach((cb) => {
         services.push(cb.value);
     });
 
-    // اعتبارسنجی
     if (!name || !nationalCode || !phone || !officeNumber || !licenseNumber || !city || !officePhone || !address) {
         showToast(CONFIG.MESSAGES.ERROR.REQUIRED_FIELDS, "error");
         return;
@@ -1178,7 +1115,6 @@ async function handleNotaryRegisterSubmit(e) {
         showToast(CONFIG.MESSAGES.SUCCESS.NOTARY_REGISTER, "success");
         e.target.reset();
 
-        // انتقال به صفحه اصلی بعد از ۲ ثانیه
         setTimeout(() => {
             window.location.href = "index.html";
         }, 2000);
@@ -1192,10 +1128,8 @@ async function handleNotaryRegisterSubmit(e) {
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    // منوی موبایل
     initMobileMenu();
 
-    // تشخیص صفحه و راه‌اندازی
     const path = window.location.pathname;
 
     if (path.includes("profile.html")) {
