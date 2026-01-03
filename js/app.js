@@ -831,7 +831,7 @@ function initChatPage() {
         });
     });
 
-    form.addEventListener("submit", handleChatSubmit);
+    form.addEventListener("submit", (e) => handleChatSubmit(e));
     scrollToBottom();
 }
 
