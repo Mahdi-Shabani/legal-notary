@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دفاتر ازدواج | دستیار دفاتر اسناد رسمی</title>
-    
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         primary: '#1e3a5f',
-                        secondary: '#d4af37',
+                        secondary: '#f5a623',
+                        accent: '#4a90a4',
                     },
                     fontFamily: {
-                        vazir: ['Vazirmatn', 'sans-serif'],
+                        'vazir': ['Vazirmatn', 'sans-serif'],
                     }
                 }
             }
@@ -27,95 +27,77 @@
 </head>
 <body class="font-vazir bg-gray-50 min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-primary shadow-lg">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <a href="index.html" class="flex items-center gap-3">
-                        <img src="images/logo.png" alt="لوگو قوه قضاییه" class="w-10 h-10 object-contain">
-                        <h1 class="text-white text-lg font-bold">دفتر اسناد رسمی</h1>
-                    </a>
-                </div>
-                
-                <ul class="hidden md:flex items-center gap-6 text-white text-sm">
-                    <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
-                    <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
-                    <li><a href="lawyers.html" class="hover:text-secondary transition">وکلا</a></li>
-                    <li><a href="marriage-offices.html" class="text-secondary">دفاتر ازدواج</a></li>
-                    <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
-                    <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
-                    <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
-                </ul>
+    <!-- هدر -->
+    <header class="bg-primary text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- لوگو -->
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-primary"></i>
+                    </div>
+                    <span class="font-bold text-lg hidden sm:block">دستیار اسناد</span>
+                </a>
 
-                <button id="menuBtn" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
+                <!-- منوی دسکتاپ -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="hover:text-secondary transition">خانه</a>
+                    <a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a>
+                    <a href="lawyers.html" class="hover:text-secondary transition">وکلا</a>
+                    <a href="marriage-offices.html" class="text-secondary font-bold">دفاتر ازدواج</a>
+                    <a href="experiences.html" class="hover:text-secondary transition">تجربیات</a>
+                    <a href="chat.html" class="hover:text-secondary transition">مشاوره</a>
+                    <a href="profile.html" class="hover:text-secondary transition">پروفایل</a>
+                </nav>
+
+                <!-- دکمه منوی موبایل -->
+                <button id="menuBtn" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
+        </div>
 
-            <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
-                <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
-                <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
-                <li><a href="lawyers.html" class="block py-2 hover:text-secondary">وکلا</a></li>
-                <li><a href="marriage-offices.html" class="block py-2 text-secondary">دفاتر ازدواج</a></li>
-                <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
-                <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
-                <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
-            </ul>
-        </nav>
+        <!-- منوی موبایل -->
+        <div id="mobileMenu" class="hidden md:hidden bg-primary/95 border-t border-white/10">
+            <nav class="container mx-auto px-4 py-4 flex flex-col gap-3">
+                <a href="index.html" class="py-2 hover:text-secondary transition">خانه</a>
+                <a href="appointment.html" class="py-2 hover:text-secondary transition">رزرو نوبت</a>
+                <a href="lawyers.html" class="py-2 hover:text-secondary transition">وکلا</a>
+                <a href="marriage-offices.html" class="py-2 text-secondary font-bold">دفاتر ازدواج</a>
+                <a href="experiences.html" class="py-2 hover:text-secondary transition">تجربیات</a>
+                <a href="chat.html" class="py-2 hover:text-secondary transition">مشاوره</a>
+                <a href="profile.html" class="py-2 hover:text-secondary transition">پروفایل</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Page Title -->
-    <section class="bg-primary text-white py-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold">دفاتر ازدواج و طلاق</h2>
-            <p class="text-gray-300 mt-2">رزرو نوبت ثبت ازدواج و طلاق</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
+    <!-- محتوای اصلی -->
     <main class="container mx-auto px-4 py-8">
-        
-        <!-- Info Box -->
-        <div class="bg-pink-50 border border-pink-200 rounded-xl p-6 mb-8">
-            <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="font-bold text-pink-700 mb-2">مدارک مورد نیاز ثبت ازدواج</h3>
-                    <ul class="text-gray-600 text-sm space-y-1">
-                        <li>• شناسنامه و کارت ملی زوجین</li>
-                        <li>• عکس ۴×۳ (۶ قطعه از هر نفر)</li>
-                        <li>• گواهی تجرد یا طلاق‌نامه</li>
-                        <li>• گواهی پزشکی و آزمایش خون</li>
-                        <li>• اجازه پدر یا جد پدری (برای دختران)</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- عنوان صفحه -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-primary mb-2">دفاتر ازدواج و طلاق</h1>
+            <p class="text-gray-600">لیست دفاتر رسمی ازدواج و طلاق در سراسر کشور</p>
         </div>
 
-        <!-- Filter -->
+        <!-- فیلتر و جستجو -->
         <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                    <label class="block text-gray-700 text-sm mb-2">استان</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary">
-                        <option value="">همه استان‌ها</option>
-                        <option value="tehran">تهران</option>
-                        <option value="khorasan">خراسان رضوی</option>
-                        <option value="isfahan">اصفهان</option>
-                        <option value="fars">فارس</option>
-                        <option value="azarbayjan">آذربایجان شرقی</option>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">جستجو</label>
+                    <input type="text" id="searchInput" placeholder="نام دفتر یا سردفتر..." class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">نوع</label>
+                    <select id="typeFilter" class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        <option value="">همه</option>
+                        <option value="marriage">دفتر ازدواج</option>
+                        <option value="divorce">دفتر طلاق</option>
+                        <option value="both">ازدواج و طلاق</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-700 text-sm mb-2">شهر</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">شهر</label>
+                    <select id="cityFilter" class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
                         <option value="">همه شهرها</option>
                         <option value="tehran">تهران</option>
                         <option value="mashhad">مشهد</option>
@@ -124,280 +106,212 @@
                         <option value="tabriz">تبریز</option>
                     </select>
                 </div>
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">نوع خدمت</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-primary">
-                        <option value="">همه خدمات</option>
-                        <option value="marriage">ثبت ازدواج</option>
-                        <option value="divorce">ثبت طلاق</option>
-                    </select>
-                </div>
-                <div class="flex items-end">
-                    <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition">
-                        جستجو
-                    </button>
-                </div>
             </div>
         </div>
 
-        <!-- Services -->
-        <h3 class="text-xl font-bold text-gray-800 mb-6">خدمات دفاتر ازدواج</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            
-            <!-- Service 1 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
+        <!-- لیست دفاتر -->
+        <div id="officesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- کارت دفتر ۱ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">دفتر ازدواج ۱۲۳</h3>
+                            <p class="text-sm text-white/80">ازدواج و طلاق</p>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-2">ثبت ازدواج دائم</h4>
-                <p class="text-gray-500 text-sm mb-4">ثبت رسمی عقد ازدواج دائم</p>
-                <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition text-sm" onclick="openMarriageModal('ثبت ازدواج دائم')">
-                    رزرو نوبت
-                </button>
+                <div class="p-4">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-user ml-2 text-primary"></i>سردفتر: محمد حسینی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>تهران، خیابان ولیعصر</p>
+                        <p><i class="fas fa-phone ml-2 text-primary"></i>۰۲۱-۱۲۳۴۵۶۷۸</p>
+                        <p><i class="fas fa-clock ml-2 text-primary"></i>شنبه تا چهارشنبه ۹-۱۷</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:02112345678" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="appointment.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-calendar ml-1"></i>رزرو نوبت
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Service 2 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <!-- کارت دفتر ۲ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">دفتر ازدواج ۴۵۶</h3>
+                            <p class="text-sm text-white/80">ازدواج</p>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-2">ثبت ازدواج موقت</h4>
-                <p class="text-gray-500 text-sm mb-4">ثبت رسمی عقد ازدواج موقت</p>
-                <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition text-sm" onclick="openMarriageModal('ثبت ازدواج موقت')">
-                    رزرو نوبت
-                </button>
+                <div class="p-4">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-user ml-2 text-primary"></i>سردفتر: فاطمه احمدی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>مشهد، بلوار وکیل‌آباد</p>
+                        <p><i class="fas fa-phone ml-2 text-primary"></i>۰۵۱-۱۲۳۴۵۶۷۸</p>
+                        <p><i class="fas fa-clock ml-2 text-primary"></i>شنبه تا پنجشنبه ۸-۱۶</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:05112345678" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="appointment.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-calendar ml-1"></i>رزرو نوبت
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Service 3 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                    </svg>
+            <!-- کارت دفتر ۳ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">دفتر ازدواج ۷۸۹</h3>
+                            <p class="text-sm text-white/80">ازدواج و طلاق</p>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-2">ثبت طلاق توافقی</h4>
-                <p class="text-gray-500 text-sm mb-4">ثبت رسمی طلاق با توافق طرفین</p>
-                <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition text-sm" onclick="openMarriageModal('ثبت طلاق توافقی')">
-                    رزرو نوبت
-                </button>
+                <div class="p-4">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-user ml-2 text-primary"></i>سردفتر: علی رضوی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>اصفهان، چهارباغ</p>
+                        <p><i class="fas fa-phone ml-2 text-primary"></i>۰۳۱-۱۲۳۴۵۶۷۸</p>
+                        <p><i class="fas fa-clock ml-2 text-primary"></i>شنبه تا چهارشنبه ۹-۱۸</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:03112345678" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="appointment.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-calendar ml-1"></i>رزرو نوبت
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Service 4 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
+            <!-- کارت دفتر ۴ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">دفتر ازدواج ۱۰۱</h3>
+                            <p class="text-sm text-white/80">ازدواج</p>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-2">المثنی سند ازدواج</h4>
-                <p class="text-gray-500 text-sm mb-4">دریافت المثنی سند ازدواج</p>
-                <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition text-sm" onclick="openMarriageModal('المثنی سند ازدواج')">
-                    رزرو نوبت
-                </button>
+                <div class="p-4">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-user ml-2 text-primary"></i>سردفتر: مریم کریمی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>شیراز، خیابان زند</p>
+                        <p><i class="fas fa-phone ml-2 text-primary"></i>۰۷۱-۱۲۳۴۵۶۷۸</p>
+                        <p><i class="fas fa-clock ml-2 text-primary"></i>شنبه تا پنجشنبه ۸:۳۰-۱۵</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:07112345678" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="appointment.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-calendar ml-1"></i>رزرو نوبت
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Service 5 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                    </svg>
+            <!-- کارت دفتر ۵ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">دفتر ازدواج ۲۰۲</h3>
+                            <p class="text-sm text-white/80">طلاق</p>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-2">تغییر نام همسر</h4>
-                <p class="text-gray-500 text-sm mb-4">ثبت تغییر نام در سند ازدواج</p>
-                <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition text-sm" onclick="openMarriageModal('تغییر نام همسر')">
-                    رزرو نوبت
-                </button>
+                <div class="p-4">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-user ml-2 text-primary"></i>سردفتر: حسین موسوی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>تبریز، خیابان آزادی</p>
+                        <p><i class="fas fa-phone ml-2 text-primary"></i>۰۴۱-۱۲۳۴۵۶۷۸</p>
+                        <p><i class="fas fa-clock ml-2 text-primary"></i>شنبه تا چهارشنبه ۹-۱۶</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:04112345678" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="appointment.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-calendar ml-1"></i>رزرو نوبت
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Service 6 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
+            <!-- کارت دفتر ۶ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">دفتر ازدواج ۳۰۳</h3>
+                            <p class="text-sm text-white/80">ازدواج و طلاق</p>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="font-bold text-gray-800 mb-2">مشاوره قبل از ازدواج</h4>
-                <p class="text-gray-500 text-sm mb-4">مشاوره حقوقی پیش از ازدواج</p>
-                <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-900 transition text-sm" onclick="openMarriageModal('مشاوره قبل از ازدواج')">
-                    رزرو نوبت
-                </button>
+                <div class="p-4">
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-user ml-2 text-primary"></i>سردفتر: زهرا محمدی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>تهران، تجریش</p>
+                        <p><i class="fas fa-phone ml-2 text-primary"></i>۰۲۱-۸۷۶۵۴۳۲۱</p>
+                        <p><i class="fas fa-clock ml-2 text-primary"></i>شنبه تا پنجشنبه ۹-۱۷</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:02187654321" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="appointment.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-calendar ml-1"></i>رزرو نوبت
+                        </a>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-        <!-- Offices List -->
-        <h3 class="text-xl font-bold text-gray-800 mb-6">دفاتر ازدواج نزدیک شما</h3>
-        
-        <div class="space-y-4">
-            
-            <!-- Office 1 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-1">دفتر ازدواج شماره ۱۵۶</h4>
-                        <p class="text-gray-500 text-sm mb-2">📍 تهران، خیابان ولیعصر، نبش کوچه مهر</p>
-                        <div class="flex items-center gap-4 text-sm flex-wrap">
-                            <span class="text-gray-500">📞 ۰۲۱-۲۲۳۴۵۶۷۸</span>
-                            <span class="text-gray-500">سردفتر: محمد احمدی</span>
-                            <span class="text-green-600">● فعال</span>
-                        </div>
-                    </div>
-                    <button class="bg-secondary text-primary font-bold px-6 py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openMarriageModal('دفتر ازدواج ۱۵۶')">
-                        رزرو نوبت
-                    </button>
-                </div>
-            </div>
-
-            <!-- Office 2 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-1">دفتر ازدواج شماره ۲۸۹</h4>
-                        <p class="text-gray-500 text-sm mb-2">📍 تهران، میدان تجریش، خیابان دربند</p>
-                        <div class="flex items-center gap-4 text-sm flex-wrap">
-                            <span class="text-gray-500">📞 ۰۲۱-۲۲۸۹۰۱۲۳</span>
-                            <span class="text-gray-500">سردفتر: فاطمه رضایی</span>
-                            <span class="text-green-600">● فعال</span>
-                        </div>
-                    </div>
-                    <button class="bg-secondary text-primary font-bold px-6 py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openMarriageModal('دفتر ازدواج ۲۸۹')">
-                        رزرو نوبت
-                    </button>
-                </div>
-            </div>
-
-            <!-- Office 3 -->
-            <div class="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <h4 class="font-bold text-gray-800 mb-1">دفتر ازدواج شماره ۴۱۲</h4>
-                        <p class="text-gray-500 text-sm mb-2">📍 تهران، پونک، بلوار عدل</p>
-                        <div class="flex items-center gap-4 text-sm flex-wrap">
-                            <span class="text-gray-500">📞 ۰۲۱-۴۴۱۲۳۴۵۶</span>
-                            <span class="text-gray-500">سردفتر: علی محمدی</span>
-                            <span class="text-green-600">● فعال</span>
-                        </div>
-                    </div>
-                    <button class="bg-secondary text-primary font-bold px-6 py-2 rounded-lg hover:bg-yellow-500 transition" onclick="openMarriageModal('دفتر ازدواج ۴۱۲')">
-                        رزرو نوبت
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
     </main>
 
-    <!-- Booking Modal -->
-    <div id="marriageModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
-        <div class="bg-white rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <div class="flex items-center justify-between p-5 border-b">
-                <h3 class="font-bold text-lg text-gray-800">رزرو نوبت دفتر ازدواج</h3>
-                <button onclick="closeMarriageModal()" class="text-gray-400 hover:text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-
-            <form id="marriageBookingForm" class="p-5 space-y-4">
-                <div class="bg-pink-50 p-3 rounded-lg">
-                    <p class="text-sm text-gray-600">خدمت انتخابی:</p>
-                    <p class="font-bold text-pink-700" id="serviceNameDisplay"></p>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">تاریخ مراجعه</label>
-                    <input type="date" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">ساعت مراجعه (۷ صبح تا ۱۴)</label>
-                    <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary">
-                        <option value="">انتخاب ساعت...</option>
-                        <option value="07:00">۰۷:۰۰</option>
-                        <option value="07:30">۰۷:۳۰</option>
-                        <option value="08:00">۰۸:۰۰</option>
-                        <option value="08:30">۰۸:۳۰</option>
-                        <option value="09:00">۰۹:۰۰</option>
-                        <option value="09:30">۰۹:۳۰</option>
-                        <option value="10:00">۱۰:۰۰</option>
-                        <option value="10:30">۱۰:۳۰</option>
-                        <option value="11:00">۱۱:۰۰</option>
-                        <option value="11:30">۱۱:۳۰</option>
-                        <option value="12:00">۱۲:۰۰</option>
-                        <option value="12:30">۱۲:۳۰</option>
-                        <option value="13:00">۱۳:۰۰</option>
-                        <option value="13:30">۱۳:۳۰</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">نام زوج</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام و نام خانوادگی زوج">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">نام زوجه</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="نام و نام خانوادگی زوجه">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">شماره تماس</label>
-                    <input type="tel" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm mb-2">توضیحات (اختیاری)</label>
-                    <textarea rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-primary resize-none" placeholder="توضیحات..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition font-bold">
-                    ثبت رزرو
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
+    <!-- فوتر -->
     <footer class="bg-primary text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-300 text-sm">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
+            <p class="text-white/70">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
 
     <!-- Toast -->
-    <div id="toast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
-        <p id="toastMessage"></p>
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <span id="toastMessage"></span>
     </div>
 
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
-    
-    <script>
-        function openMarriageModal(serviceName) {
-            document.getElementById('serviceNameDisplay').textContent = serviceName;
-            document.getElementById('marriageModal').classList.remove('hidden');
-            document.getElementById('marriageModal').classList.add('flex');
-        }
-
-        function closeMarriageModal() {
-            document.getElementById('marriageModal').classList.add('hidden');
-            document.getElementById('marriageModal').classList.remove('flex');
-        }
-
-        document.getElementById('marriageBookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showToast('رزرو شما با موفقیت ثبت شد', 'success');
-            closeMarriageModal();
-            this.reset();
-        });
-    </script>
 </body>
 </html>

@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>وکلا | دستیار دفاتر اسناد رسمی</title>
-    
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         primary: '#1e3a5f',
-                        secondary: '#d4af37',
+                        secondary: '#f5a623',
+                        accent: '#4a90a4',
                     },
                     fontFamily: {
-                        vazir: ['Vazirmatn', 'sans-serif'],
+                        'vazir': ['Vazirmatn', 'sans-serif'],
                     }
                 }
             }
@@ -27,255 +27,275 @@
 </head>
 <body class="font-vazir bg-gray-50 min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-primary shadow-lg">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <a href="index.html" class="flex items-center gap-3">
-                        <img src="images/logo.png" alt="لوگو قوه قضاییه" class="w-10 h-10 object-contain">
-                        <h1 class="text-white text-lg font-bold">دفتر اسناد رسمی</h1>
-                    </a>
-                </div>
-                
-                <!-- منوی دسکتاپ - اصلاح شده -->
-                <ul class="hidden md:flex items-center gap-6 text-white text-sm">
-                    <li><a href="index.html" class="hover:text-secondary transition">خانه</a></li>
-                    <li><a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a></li>
-                    <li><a href="lawyers.html" class="text-secondary">وکلا</a></li>
-                    <li><a href="marriage-offices.html" class="hover:text-secondary transition">دفاتر ازدواج</a></li>
-                    <li><a href="experiences.html" class="hover:text-secondary transition">تجربیات</a></li>
-                    <li><a href="chat.html" class="hover:text-secondary transition">مشاوره</a></li>
-                    <li><a href="profile.html" class="hover:text-secondary transition">پروفایل</a></li>
-                </ul>
+    <!-- هدر -->
+    <header class="bg-primary text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- لوگو -->
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-primary"></i>
+                    </div>
+                    <span class="font-bold text-lg hidden sm:block">دستیار اسناد</span>
+                </a>
 
-                <button id="menuBtn" class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
+                <!-- منوی دسکتاپ -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html" class="hover:text-secondary transition">خانه</a>
+                    <a href="appointment.html" class="hover:text-secondary transition">رزرو نوبت</a>
+                    <a href="lawyers.html" class="text-secondary font-bold">وکلا</a>
+                    <a href="marriage-offices.html" class="hover:text-secondary transition">دفاتر ازدواج</a>
+                    <a href="experiences.html" class="hover:text-secondary transition">تجربیات</a>
+                    <a href="chat.html" class="hover:text-secondary transition">مشاوره</a>
+                    <a href="profile.html" class="hover:text-secondary transition">پروفایل</a>
+                </nav>
+
+                <!-- دکمه منوی موبایل -->
+                <button id="menuBtn" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
+        </div>
 
-            <!-- منوی موبایل - اصلاح شده -->
-            <ul id="mobileMenu" class="hidden md:hidden mt-4 space-y-2 text-white text-sm">
-                <li><a href="index.html" class="block py-2 hover:text-secondary">خانه</a></li>
-                <li><a href="appointment.html" class="block py-2 hover:text-secondary">رزرو نوبت</a></li>
-                <li><a href="lawyers.html" class="block py-2 text-secondary">وکلا</a></li>
-                <li><a href="marriage-offices.html" class="block py-2 hover:text-secondary">دفاتر ازدواج</a></li>
-                <li><a href="experiences.html" class="block py-2 hover:text-secondary">تجربیات</a></li>
-                <li><a href="chat.html" class="block py-2 hover:text-secondary">مشاوره</a></li>
-                <li><a href="profile.html" class="block py-2 hover:text-secondary">پروفایل</a></li>
-            </ul>
-        </nav>
+        <!-- منوی موبایل -->
+        <div id="mobileMenu" class="hidden md:hidden bg-primary/95 border-t border-white/10">
+            <nav class="container mx-auto px-4 py-4 flex flex-col gap-3">
+                <a href="index.html" class="py-2 hover:text-secondary transition">خانه</a>
+                <a href="appointment.html" class="py-2 hover:text-secondary transition">رزرو نوبت</a>
+                <a href="lawyers.html" class="py-2 text-secondary font-bold">وکلا</a>
+                <a href="marriage-offices.html" class="py-2 hover:text-secondary transition">دفاتر ازدواج</a>
+                <a href="experiences.html" class="py-2 hover:text-secondary transition">تجربیات</a>
+                <a href="chat.html" class="py-2 hover:text-secondary transition">مشاوره</a>
+                <a href="profile.html" class="py-2 hover:text-secondary transition">پروفایل</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- محتوای اصلی -->
     <main class="container mx-auto px-4 py-8">
-        <div class="max-w-6xl mx-auto">
-            
-            <!-- Page Title -->
-            <div class="text-center mb-8">
-                <h2 class="text-2xl font-bold text-primary mb-2">وکلای مجرب</h2>
-                <p class="text-gray-600">جستجو و رزرو وقت مشاوره با وکلای پایه یک دادگستری</p>
-            </div>
+        <!-- عنوان صفحه -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-primary mb-2">لیست وکلا</h1>
+            <p class="text-gray-600">وکلای مجرب و متخصص در حوزه‌های مختلف حقوقی</p>
+        </div>
 
-            <!-- فیلتر و جستجو -->
-            <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <!-- جستجو -->
-                    <div class="md:col-span-2">
-                        <input type="text" id="searchLawyer" placeholder="جستجوی نام وکیل..." 
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                    </div>
-                    
-                    <!-- تخصص -->
-                    <div>
-                        <select id="specialty" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                            <option value="">تخصص</option>
-                            <option value="family">خانواده</option>
-                            <option value="criminal">کیفری</option>
-                            <option value="property">ملکی</option>
-                            <option value="commercial">تجاری</option>
-                            <option value="labor">کار و تامین اجتماعی</option>
-                        </select>
-                    </div>
-                    
-                    <!-- شهر -->
-                    <div>
-                        <select id="city" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                            <option value="">شهر</option>
-                            <option value="tehran">تهران</option>
-                            <option value="isfahan">اصفهان</option>
-                            <option value="shiraz">شیراز</option>
-                            <option value="mashhad">مشهد</option>
-                            <option value="tabriz">تبریز</option>
-                        </select>
-                    </div>
+        <!-- فیلتر و جستجو -->
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">جستجو</label>
+                    <input type="text" id="searchInput" placeholder="نام وکیل..." class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">تخصص</label>
+                    <select id="specialtyFilter" class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        <option value="">همه تخصص‌ها</option>
+                        <option value="family">خانواده</option>
+                        <option value="criminal">کیفری</option>
+                        <option value="civil">حقوقی</option>
+                        <option value="property">ملکی</option>
+                        <option value="business">تجاری</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">شهر</label>
+                    <select id="cityFilter" class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                        <option value="">همه شهرها</option>
+                        <option value="tehran">تهران</option>
+                        <option value="mashhad">مشهد</option>
+                        <option value="isfahan">اصفهان</option>
+                        <option value="shiraz">شیراز</option>
+                        <option value="tabriz">تبریز</option>
+                    </select>
                 </div>
             </div>
+        </div>
 
-            <!-- لیست وکلا -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="lawyersList">
-                
-                <!-- وکیل ۱ -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                                <span class="text-white text-xl font-bold">م.ر</span>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-800">دکتر محمد رضایی</h3>
-                                <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
-                            </div>
+        <!-- لیست وکلا -->
+        <div id="lawyersList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- کارت وکیل ۱ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-tie text-2xl text-primary"></i>
                         </div>
-                        
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <span>تخصص: حقوق خانواده</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <span>تهران</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>۴.۸ (۱۲۴ نظر)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-900 transition">
-                                رزرو وقت
-                            </button>
-                            <button class="px-4 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-primary hover:text-white transition">
-                                پروفایل
-                            </button>
+                        <div>
+                            <h3 class="font-bold text-gray-800">دکتر محمد احمدی</h3>
+                            <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- وکیل ۲ -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center">
-                                <span class="text-white text-xl font-bold">ز.ک</span>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-800">زهرا کریمی</h3>
-                                <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <span>تخصص: حقوق کیفری</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <span>اصفهان</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>۴.۹ (۸۹ نظر)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-900 transition">
-                                رزرو وقت
-                            </button>
-                            <button class="px-4 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-primary hover:text-white transition">
-                                پروفایل
-                            </button>
-                        </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-gavel ml-2 text-primary"></i>تخصص: حقوق خانواده</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>تهران</p>
+                        <p><i class="fas fa-star ml-2 text-secondary"></i>۱۵ سال سابقه</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:09121234567" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="chat.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-comment ml-1"></i>مشاوره
+                        </a>
                     </div>
                 </div>
-
-                <!-- وکیل ۳ -->
-                <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
-                    <div class="p-6">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center">
-                                <span class="text-white text-xl font-bold">ع.م</span>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-gray-800">علی محمدی</h3>
-                                <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <span>تخصص: حقوق ملکی</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <span>شیراز</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-sm text-gray-600">
-                                <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <span>۴.۷ (۶۵ نظر)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-900 transition">
-                                رزرو وقت
-                            </button>
-                            <button class="px-4 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-primary hover:text-white transition">
-                                پروفایل
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
+            <!-- کارت وکیل ۲ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-tie text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">دکتر زهرا محمدی</h3>
+                            <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-gavel ml-2 text-primary"></i>تخصص: حقوق کیفری</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>مشهد</p>
+                        <p><i class="fas fa-star ml-2 text-secondary"></i>۱۰ سال سابقه</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:09129876543" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="chat.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-comment ml-1"></i>مشاوره
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت وکیل ۳ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-tie text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">علی رضایی</h3>
+                            <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-gavel ml-2 text-primary"></i>تخصص: حقوق ملکی</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>اصفهان</p>
+                        <p><i class="fas fa-star ml-2 text-secondary"></i>۸ سال سابقه</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:09135551234" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="chat.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-comment ml-1"></i>مشاوره
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت وکیل ۴ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-tie text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">مریم کریمی</h3>
+                            <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-gavel ml-2 text-primary"></i>تخصص: حقوق تجاری</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>شیراز</p>
+                        <p><i class="fas fa-star ml-2 text-secondary"></i>۱۲ سال سابقه</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:09171234567" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="chat.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-comment ml-1"></i>مشاوره
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت وکیل ۵ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-tie text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">حسین موسوی</h3>
+                            <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-gavel ml-2 text-primary"></i>تخصص: حقوق خانواده</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>تبریز</p>
+                        <p><i class="fas fa-star ml-2 text-secondary"></i>۲۰ سال سابقه</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:09141234567" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="chat.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-comment ml-1"></i>مشاوره
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت وکیل ۶ -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-tie text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">فاطمه نوری</h3>
+                            <p class="text-sm text-gray-500">وکیل پایه یک دادگستری</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><i class="fas fa-gavel ml-2 text-primary"></i>تخصص: حقوق کیفری</p>
+                        <p><i class="fas fa-map-marker-alt ml-2 text-primary"></i>تهران</p>
+                        <p><i class="fas fa-star ml-2 text-secondary"></i>۷ سال سابقه</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="tel:09123456789" class="flex-1 bg-primary text-white text-center py-2 rounded-lg hover:bg-primary/90 transition">
+                            <i class="fas fa-phone ml-1"></i>تماس
+                        </a>
+                        <a href="chat.html" class="flex-1 bg-secondary text-primary text-center py-2 rounded-lg hover:bg-secondary/90 transition">
+                            <i class="fas fa-comment ml-1"></i>مشاوره
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- فوتر -->
     <footer class="bg-primary text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-300 text-sm">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
+            <p class="text-white/70">© ۱۴۰۳ دستیار دفاتر اسناد رسمی. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
 
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <span id="toastMessage"></span>
+    </div>
+
     <script src="js/config.js"></script>
     <script src="js/app.js"></script>
-    
-    <script>
-        // منوی موبایل
-        document.getElementById('menuBtn').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        });
-    </script>
-
 </body>
 </html>
