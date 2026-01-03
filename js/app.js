@@ -898,12 +898,10 @@ async function handleChatSubmit(e) {
 
     showTypingIndicator();
 
+    // فقط message بفرست
     const result = await apiRequest(CONFIG.ENDPOINTS.CHAT, {
         method: "POST",
-        body: JSON.stringify({
-            message,
-            user_id: getUserId()
-        })
+        body: JSON.stringify({ message })
     });
 
     hideTypingIndicator();
